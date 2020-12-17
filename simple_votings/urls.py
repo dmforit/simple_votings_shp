@@ -29,7 +29,7 @@ urlpatterns = [
         extra_context={
             'menu': get_menu_context(),
             'pagename': 'Регистрация'}
-    ), name='signup'),
+    ), name='signup'),  # TODO сделать редактирование шаблона регистрации
     path('login/', auth_views.LoginView.as_view(
         extra_context={
             'menu': get_menu_context(),
