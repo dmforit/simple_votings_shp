@@ -4,13 +4,11 @@
 {% block content %}
     <div>
         <div>
-            <h1>Wellcome!</h1>
-            <hr>
-            <p>Это маленький и очень простой сайт</p>
-            <ul>
-                <li>Автор: {{ author }}</li>
-                <li>Количество страниц: {{ pages }}</li>
-            </ul>
+            {% if user.is_authenticated %}
+                Привет, {{ user.username }}!
+            {% else %}
+                <p>Вы не вошли.</p>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

@@ -13,8 +13,6 @@ def get_menu_context():
 def index_page(request):
     context = {
         'pagename': 'Главная',
-        'author': 'Andrew',
-        'pages': 4,
         'menu': get_menu_context()
     }
     return render(request, 'pages/index.html', context)
