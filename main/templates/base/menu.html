@@ -16,13 +16,13 @@
 
     <ul>
         {% block usermenu %}
-            <li>
-                {% if request.user.is_authenticated %}
-                    <a href="{% url 'logout' %}">Выйти</a>
-                {% else %}
-                    <a href="{% url 'login' %}">Войти</a>
-                {% endif %}
-            </li>
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Выйти</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Войти</a></li>
+                <li><a href="{% url 'signup' %}">Зарегистрироваться</a></li>
+            {% endif %}
+
         {% endblock %}
     </ul>
 
