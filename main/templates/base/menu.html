@@ -18,6 +18,8 @@
         {% block usermenu %}
             {% if request.user.is_authenticated %}
                 <li><a href="{% url 'logout' %}">Выйти</a></li>
+                <li><a href="{% url 'profile' %}">Профиль пользователя</a></li>
+                <li><a href="{% url 'edit_profile' %}">Редактировать профиль</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">Войти</a></li>
                 <li><a href="{% url 'signup' %}">Зарегистрироваться</a></li>

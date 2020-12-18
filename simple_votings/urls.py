@@ -25,15 +25,30 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_page, name='index'),
     path('time/', views.time_page, name='time'),
-    path('signup/', accounts_views.SignUpView.as_view(
+
+    path('signup/', accounts_views.UserSignUpView.as_view(
         extra_context={
             'menu': get_menu_context(),
             'pagename': 'Регистрация'}
-    ), name='signup'),  # TODO сделать редактирование шаблона регистрации
+    ), name='signup'),
+
+    path('edit_profile/', accounts_views.UserEditProfileView.as_view(
+        extra_context={
+            'menu': get_menu_context(),
+            'pagename': 'Редактирование профиля'}
+    ), name='edit_profile'),
+
+    path('profile/', accounts_views.UserProfileView.as_view(
+        extra_context={
+            'menu': get_menu_context(),
+            'pagename': 'Профиль пользователя'}
+    ), name='profile'),
+
     path('login/', auth_views.LoginView.as_view(
         extra_context={
             'menu': get_menu_context(),
             'pagename': 'Авторизация'}
     ), name='login'),
+
     path('logout/', auth_views.LogoutView.as_view(), name='logout')
 ]

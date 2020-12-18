@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+    <h1>Профиль пользователя</h1>
+    <hr>
+
+    <form action="{% url 'profile' %}" method="POST">
+        {% csrf_token %}
+        <p>Имя пользователя: {{ user }}</p>
+        <p>Имя: {{ user.first_name }}</p>
+        <p>Фамилия: {{ user.last_name }}</p>
+        <p>Почта: {{ user.email }}</p>
+        <p>Дата регистрации: {{ user.date_joined }}</p>
+        <p>Вы можете <a href="{% url 'edit_profile' %}">отредактировать свой профиль</a>.</p>
+    </form>
+
+    {% if form.non_field_errors %}
+        {{ form.non_field_errors }}
+    {% endif %}
+
+{% endblock %}
