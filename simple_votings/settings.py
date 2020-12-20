@@ -28,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Далее полученное значение подставляется в соответствующую переменную
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'Insert secret key here and uncomment this variable'
+SECRET_KEY = 'xo-eacnne^5vjx2=fqe@a5)gdp%s0bg@a8li_c&h-p68tt(1v%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'bootstrap4',
+    'vote',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -78,6 +80,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'simple_votings.wsgi.application'
+ASGI_APPLICATION = 'simple_votings.routing.application'
 
 
 # Database
@@ -133,8 +136,3 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
-
-# Проверка тех, кто ленится указать корректный SECRET_KEY
-if SECRET_KEY == 'Insert secret key here and uncomment this variable':
-    raise RuntimeError('Сначала укажите SECRET_KEY. Подробности - в settings.py')
