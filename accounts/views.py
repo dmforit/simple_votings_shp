@@ -5,10 +5,25 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 
+class FormClass(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')
+
+
 class UserSignUpView(generic.CreateView):
-    form_class = UserCreationForm
+    form_class = FormClass
     success_url = reverse_lazy('index')
     template_name = 'registration/signup.html'
+
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+        )
 
     def form_valid(self, form):
         form.save()
