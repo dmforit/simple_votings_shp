@@ -60,6 +60,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'simple_votings.urls'
+MEDIA_ROOT = 'media'
 
 TEMPLATES = [
     {
