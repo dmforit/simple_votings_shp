@@ -1,3 +1,8 @@
 from django.db import models
+from django.utils import timezone
 
-# Create your models here.
+class Vote(models.Model):
+    title = models.CharField(max_length=100)
+    options = models.CharField(max_length=500)
+    votes = models.CharField(max_length=500)
+    date = models.DateTimeField(default=timezone.now)

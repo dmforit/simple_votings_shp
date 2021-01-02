@@ -4,17 +4,18 @@
     <meta charset="utf-8"/>
     <title>Vote</title>
 </head>
-<body>
-    <h3>Create new Vote</h3>
-    <input id="room-create" type="button" value="Create">
+  <h2>Create new Vote</h2>
+  <form>
+    <h3>Title</h3>
+    <input name="title" type="text">
 
-    <script>
-        min = 100000000;
-        max = 999999999;
-        document.querySelector('#room-create').onclick = function(e) {
-            roomName = Math.round(Math.random() * (max - min) + min);
-            window.location.pathname = '/vote/rooms/' + roomName + '/';
-        };
-    </script>
+    <h3>Options</h3>
+    <textarea name="options"></textarea>
+
+    <h3>Create</h3>
+    <input type="submit" value="Create">
+  </form>
+    <h1>{{ test }}</h1>
+
 </body>
 </html>
