@@ -5,8 +5,6 @@ def new_vote(request):
     title = request.GET.get('title', None)
     options = request.GET.get('options', None)
 
-    context = {}
-
     if title and options:
         list_options = list(map(str, options.split('\n')))
         for i in range(len(list_options) -1):
@@ -20,7 +18,7 @@ def new_vote(request):
 
         return redirect('rooms/'+str(v.id))
 
-    return render(request, 'vote/new_vote.html', context)
+    return render(request, 'vote/new_vote.html')
 
 
 def room(request, room_name):
