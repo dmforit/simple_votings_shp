@@ -4,7 +4,11 @@
     <meta charset="utf-8"/>
     <title>Vote Room</title>
 </head>
-<body>
-    {{ room_name }}
+    {{ data.title }}<br>
+    {% for option in data.get_options %}
+      <input type="radio" name="option" value="ie"> {{ option }}<Br>
+    {% endfor %}
+    <input type="button", value="submit">
+
 </body>
 </html>

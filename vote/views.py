@@ -24,6 +24,8 @@ def new_vote(request):
 
 
 def room(request, room_name):
-    return render(request, 'vote/room.html', {
-        'room_name': room_name
-    })
+    data = Vote.objects.get(id=room_name)
+    context = {}
+    context['data'] = data
+
+    return render(request, 'vote/room.html', context)
