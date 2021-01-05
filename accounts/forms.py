@@ -27,3 +27,4 @@ class CustomUserChangeForm(UserChangeForm):
             'last_name',
             'email',
         )
+# TODO upload/change avatars in edit_profile

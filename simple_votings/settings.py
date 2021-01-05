@@ -20,7 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 
-
 # Эта настройка отключена в шаблоне, чтобы все проекты обязательно указывали свой индивидуальный SECRET_KEY.
 # Генерация делается в консоли Python при помощи команд:
 #   from django.core.management.utils import get_random_secret_key
@@ -60,6 +59,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'simple_votings.urls'
 MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
 
 TEMPLATES = [
     {
@@ -129,6 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
