@@ -26,13 +26,13 @@ urlpatterns = [
     path('', views.index_page, name='index'),
     path('time/', views.time_page, name='time'),
 
-    path('signup/', accounts_views.UserSignUpView.as_view(
+    path('signup/', accounts_views.UserCreationView.as_view(
         extra_context={
             'menu': get_menu_context(),
             'pagename': 'Регистрация'}
     ), name='signup'),
 
-    path('edit_profile/', accounts_views.UserEditProfileView.as_view(
+    path('edit_profile/', accounts_views.UserChangeView.as_view(
         extra_context={
             'menu': get_menu_context(),
             'pagename': 'Редактирование профиля'}
