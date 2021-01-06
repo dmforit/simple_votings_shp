@@ -7,7 +7,6 @@ from django.contrib.auth import views as auth_views
 
 from main.views import get_menu_context
 
-
 app_name = 'vote'
 
 urlpatterns = [

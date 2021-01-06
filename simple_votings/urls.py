@@ -55,7 +55,7 @@ urlpatterns = [
             'pagename': 'Авторизация'}
     ), name='login'),
     path('vote/', vote_views.new_vote, name='vote'),
-    path('vote/rooms/', include('vote.urls', namespace='vote'))
+    path('vote/rooms/', include('vote.urls', namespace='vote')),
     path('logout/', auth_views.LogoutView.as_view(), name='logout')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

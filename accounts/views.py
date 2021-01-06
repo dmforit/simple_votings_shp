@@ -33,4 +33,3 @@ class UserChangeView(generic.UpdateView):
 class UserProfileView(generic.TemplateView):
     form_class = CustomUserChangeForm
     template_name = 'registration/profile.html'
-
