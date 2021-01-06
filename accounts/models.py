@@ -7,13 +7,10 @@ from django.db import models
 from django.dispatch import receiver
 
 
-def path_and_rename(path, old_avatar=None):
-    def wrapper(instance, filename):
-        ext = filename.split('.')[-1]
-        filename = '{}.{}'.format(uuid4().hex, ext)
-        return os.path.join(path, filename)
-
-    return wrapper
+def path_and_rename(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = '{}.{}'.format(uuid4().hex, ext)
+    return os.path.join('images/avatars', filename)
 
 
 def avatar_validator(avatar_image):
@@ -24,8 +21,7 @@ def avatar_validator(avatar_image):
 
 
 class CustomUser(AbstractUser):
-    avatar = models.ImageField(null=True, blank=True, upload_to=path_and_rename('images/avatars'),
-                               validators=[avatar_validator])
+    avatar = models.ImageField(null=True, blank=True, upload_to=path_and_rename, validators=[avatar_validator])
 
     def __str__(self):
         return self.username
