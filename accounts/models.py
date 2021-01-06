@@ -2,11 +2,11 @@ import os
 from uuid import uuid4
 
 from django.contrib.auth.models import AbstractUser
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.dispatch import receiver
 
 
-# TODO check avatar filesize and type
 def path_and_rename(path, old_avatar=None):
     def wrapper(instance, filename):
         ext = filename.split('.')[-1]
@@ -16,8 +16,16 @@ def path_and_rename(path, old_avatar=None):
     return wrapper
 
 
+def avatar_validator(avatar_image):
+    filesize = avatar_image.file.size
+    megabyte_limit = 10.0
+    if filesize > megabyte_limit * 1024 * 1024:
+        raise ValidationError("Максимальный размер файла: %sMB" % str(megabyte_limit))
+
+
 class CustomUser(AbstractUser):
-    avatar = models.ImageField(null=True, blank=True, upload_to=path_and_rename('images/avatars'))
+    avatar = models.ImageField(null=True, blank=True, upload_to=path_and_rename('images/avatars'),
+                               validators=[avatar_validator])
 
     def __str__(self):
         return self.username
