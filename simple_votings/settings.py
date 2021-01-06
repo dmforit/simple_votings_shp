@@ -20,7 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 
-
 # Эта настройка отключена в шаблоне, чтобы все проекты обязательно указывали свой индивидуальный SECRET_KEY.
 # Генерация делается в консоли Python при помощи команд:
 #   from django.core.management.utils import get_random_secret_key
@@ -28,14 +27,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Далее полученное значение подставляется в соответствующую переменную
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xo-eacnne^5vjx2=fqe@a5)gdp%s0bg@a8li_c&h-p68tt(1v%'
+SECRET_KEY = 'l0jd=v0xn8271m!iwk@gxe!57l(b=2qjmob@%io6dzr-2jbx9g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
+AUTH_USER_MODEL = 'accounts.CustomUser'
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'accounts',
     'bootstrap4',
     'vote',
     'channels'
@@ -62,6 +61,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'simple_votings.urls'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 TEMPLATES = [
     {
@@ -132,6 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'

@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <h1>Профиль пользователя</h1>
+    <hr>
+
+    <form action="{% url 'profile' %}" method="POST">
+        {% csrf_token %}
+        <img src="{% if user.avatar %}{{ user.avatar.url }}{% else %}{% static 'images/avatar_default.jpg' %}{% endif %}" alt="Аватар" width="150" height="150">
+        <p>Имя пользователя: {{ user }}</p>
+        <p>Имя: {{ user.first_name }}</p>
+        <p>Фамилия: {{ user.last_name }}</p>
+        <p>Почта: {{ user.email }}</p>
+        <p>Дата регистрации: {{ user.date_joined }}</p>
+        <p>Вы можете <a href="{% url 'edit_profile' %}">отредактировать свой профиль</a>.</p>
+    </form>
+
+    {% if form.non_field_errors %}
+        {{ form.non_field_errors }}
+    {% endif %}
+
+{% endblock %}

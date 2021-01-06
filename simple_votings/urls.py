@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from django.conf.urls.static import static
+from django.conf import settings
 
+from accounts import views as accounts_views
 from main import views
 from vote import views as vote_views
 from django.contrib.auth import views as auth_views
@@ -26,17 +30,33 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_page, name='index'),
     path('time/', views.time_page, name='time'),
-    path(
-        'login/',
-        auth_views.LoginView.as_view(
-            extra_context={
-                'menu': get_menu_context(),
-                'pagename': 'Авторизация'
-            }
-        ),
-        name='login'
-    ),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+
+    path('signup/', accounts_views.UserCreationView.as_view(
+        extra_context={
+            'menu': get_menu_context(),
+            'pagename': 'Регистрация'}
+    ), name='signup'),
+
+    path('edit_profile/', accounts_views.UserChangeView.as_view(
+        extra_context={
+            'menu': get_menu_context(),
+            'pagename': 'Редактирование профиля'}
+    ), name='edit_profile'),
+
+    path('profile/', accounts_views.UserProfileView.as_view(
+        extra_context={
+            'menu': get_menu_context(),
+            'pagename': 'Профиль пользователя'}
+    ), name='profile'),
+
+    path('login/', auth_views.LoginView.as_view(
+        extra_context={
+            'menu': get_menu_context(),
+            'pagename': 'Авторизация'}
+    ), name='login'),
     path('vote/', vote_views.new_vote, name='vote'),
     path('vote/rooms/', include('vote.urls', namespace='vote'))
-]
+    path('logout/', auth_views.LogoutView.as_view(), name='logout')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# TODO serve avatars securely
