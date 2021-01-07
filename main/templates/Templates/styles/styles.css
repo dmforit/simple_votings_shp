@@ -9,6 +9,7 @@ body {
     min-width: 900px;
     font-family: 'Crimson Text', serif !important;
     font-size: 25px;
+    padding: 0;
 }
 
 .header,
@@ -135,9 +136,65 @@ body {
     margin-top: 20%;
 }
 
-.qd-main-2>span {
+.qd-main-2 > span {
     font-size: 45px;
 }
+
 .registr-block {
     background-color: whitesmoke;
+}
+
+.clr {
+    height: 200px;
+}
+
+.footer {
+    margin: -200px auto 0;
+    height: 800px;
+    max-width: 1750px;
+    min-width: 900px;
+    background-color: #211A1A;
+    padding: 200px 100px;
+}
+
+.footer > div > ul {
+    margin-top: 20px;
+    list-style-type: circle;
+    padding-left: 0;
+}
+
+.footer > div > ul > li > a {
+    font-size: 25px;
+    text-decoration: none;
+    color: snow;
+}
+
+.footer > div > ul > li > a:hover {
+    color: antiquewhite;
+}
+
+.infooter-image,
+.links,
+.our-family,
+.contacts {
+    float: left;
+}
+
+.links,
+.our-family,
+.contacts {
+    margin-top: 20px;
+    font-size: 30px;
+    color: white;
+    height: 400px;
+    margin-left: 8%;
+}
+
+.footer-bottom {
+    color: white;
+    padding: 25px 20px;
+    margin: 0 auto;
+    height: 100px;
+    width: 1750px;
+    background-color: #000;
 }
