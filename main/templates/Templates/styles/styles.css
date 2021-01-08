@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    background-color: #ECEEF1;
 }
 
 .container {
@@ -22,12 +23,6 @@ body {
 .header {
     background-color: #8E8E8E;
     padding: 50px 100px;
-
-    /*
-    background-image: url(../images/light_theme.jpeg);
-    background-repeat: no-repeat;
-    background-size: contain;
-*/
 }
 
 .me-auto {
@@ -79,12 +74,14 @@ body {
 .how-it-works > p {
     margin: 0 auto 100px;
     max-width: 600px;
-    font-size: 50px;
+    font-size: 40px;
+    text-align: center;
 }
 
 .hiw-left,
 .hiw-center,
 .hiw-right {
+    border-radius: 75px;
     max-width: 350px;
     min-width: 350px;
     max-height: 350px;
@@ -118,9 +115,9 @@ body {
 .quotation-description {
     color: white;
     float: left;
-    width: 500px;
+    width: 550px;
     margin-left: 5%;
-    margin-top: 15%;
+    margin-top: 12%;
 }
 
 .manager-photo {
@@ -141,7 +138,30 @@ body {
 }
 
 .registr-block {
-    background-color: whitesmoke;
+    text-align: center;
+    background-color: white;
+    padding: 250px 50px;
+}
+
+.registr-block-button {
+    text-decoration: none;
+    color: white;
+    padding: 20px 40px;
+    background-color: coral;
+    border-radius: 10px;
+}
+
+.registr-block-button:hover {
+    color: ghostwhite;
+    background-color: orangered;
+}
+
+.reg-b-sign-in {
+    color: black;
+}
+
+.reg-b-sign-in:hover {
+    color: midnightblue
 }
 
 .clr {
@@ -150,11 +170,11 @@ body {
 
 .footer {
     margin: -200px auto 0;
-    height: 800px;
+    height: 400px;
     max-width: 1750px;
     min-width: 900px;
     background-color: #211A1A;
-    padding: 200px 100px;
+    padding: 0px 100px;
 }
 
 .footer > div > ul {
@@ -183,10 +203,10 @@ body {
 .links,
 .our-family,
 .contacts {
-    margin-top: 20px;
+    margin-top: 80px;
     font-size: 30px;
     color: white;
-    height: 400px;
+    height: 300px;
     margin-left: 8%;
 }
 
@@ -197,4 +217,65 @@ body {
     height: 100px;
     width: 1750px;
     background-color: #000;
+}
+
+/* Registration page */
+
+.reg-header {
+    max-height: 280px;
+    min-height: 100px;
+    padding: 10px;
+}
+
+.sign-in {
+    margin-top: -9%;
+    float: right;
+    min-width: 320px;
+}
+
+.sign-in-button {
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding-top: 7px;
+    margin-top: 1%;
+    float: left;
+    max-width: 140px;
+    min-width: 100px;
+    max-height: 60px;
+    min-height: 40px;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+.sign-in-button:hover {
+    background-color: mediumblue;
+}
+
+.sign-in-button:active {
+    background-color: dodgerblue;
+}
+
+.reg-container {
+    padding: 20px;
+    margin: 20px auto 0;
+    background-color: white;
+    width: 400px;
+    height: 600px;
+    border: 1px solid grey;
+    border-radius: 20px;
+}
+
+.reg-logo {
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.reg-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 8px;
 }
