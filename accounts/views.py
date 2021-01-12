@@ -23,7 +23,7 @@ class UserCreationView(generic.CreateView):
 
 class UserChangeView(generic.UpdateView):
     form_class = CustomUserChangeForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('profile')
     template_name = 'registration/edit_profile.html'
 
     def get_object(self, **kwargs):
