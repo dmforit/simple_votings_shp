@@ -256,6 +256,17 @@ body {
 
 /* Registration page */
 
+.registration {
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .reg-header {
     max-height: 280px;
     min-height: 100px;
@@ -299,10 +310,10 @@ body {
 .reg-container {
     padding: 20px;
     margin: 20px auto 0;
-    background-color: white;
+    background: rgba(196, 196, 196, 0.2);
     width: 400px;
-    height: 620px;
-    border: 1px solid grey;
+    height: 700px;
+    border: 2px solid black;
     border-radius: 20px;
 }
 
