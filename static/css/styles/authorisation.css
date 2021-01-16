@@ -1,5 +1,5 @@
 html {
-    background-image: url(../images/background.png);
+    background-image: url(../../images/background.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -51,7 +51,7 @@ html {
     margin-top: 60px;
     font-family: 'Crimson Text', serif !important;
     font-weight: 400px;
-    font-size: 48px;
+    font-size: 14px;
     line-height: 58px;
     letter-spacing: 0.07em;
 

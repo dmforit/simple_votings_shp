@@ -16,12 +16,3 @@ def index_page(request):
         'menu': get_menu_context()
     }
     return render(request, 'pages/index.html', context)
-
-
-def time_page(request):
-    context = {
-        'pagename': 'Текущее время',
-        'time': datetime.datetime.now().time(),
-        'menu': get_menu_context()
-    }
-    return render(request, 'pages/time.html', context)

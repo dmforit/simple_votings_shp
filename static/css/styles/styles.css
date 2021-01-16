@@ -22,7 +22,7 @@ body {
 
 .header {
     padding: 50px 100px;
-    background-image: url(../images/lending.jpeg);
+    background-image: url(../../images/lending.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -76,7 +76,7 @@ body {
 
 .how-it-works {
     padding: 150px 50px;
-    background-image: url(../images/background.png);
+    background-image: url(../../images/background.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -149,7 +149,7 @@ body {
 
 .registr-block {
     text-align: center;
-    background-image: url(../images/background.png);
+    background-image: url(../../images/background.png);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 250px 50px;
@@ -190,7 +190,7 @@ body {
 }
 
 .footer {
-    background-image: url(../images/footer.jpg);
+    background-image: url(../../images/footer.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -257,7 +257,7 @@ body {
 /* Registration page */
 
 .registration {
-    background-image: url(../images/background.png);
+    background-image: url(../../images/background.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;

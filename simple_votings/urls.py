@@ -29,8 +29,6 @@ from main.views import get_menu_context
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_page, name='index'),
-    path('time/', views.time_page, name='time'),
-
     path('signup/', accounts_views.UserCreationView.as_view(
         extra_context={
             'menu': get_menu_context(),

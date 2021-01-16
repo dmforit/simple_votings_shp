@@ -27,7 +27,6 @@ def room(request, room_name):
 
     current_user_id = request.user.id
 
-
     if selected and current_user_id:
         selected = int(selected)
         selected -= 1
@@ -38,11 +37,9 @@ def room(request, room_name):
                     v.pop(i)
                     break
 
-
         voters[selected].append(current_user_id)
         data.voters = str(voters)
         data.save()
-
 
     context = {'data': data}
 
@@ -50,3 +47,5 @@ def room(request, room_name):
 
 # TODO voting pages as layout extension
 # TODO add bootstrap to base.html
+# TODO vote can be created by unauthorised user
+# TODO add design to votes
