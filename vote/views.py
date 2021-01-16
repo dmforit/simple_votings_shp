@@ -15,7 +15,6 @@ def new_vote(request):
 
         v = Vote(title=title, options=str(list_options), voters=str(list_voters))
         v.save()
-        print(v.id)
 
         return redirect('rooms/' + str(v.id))
 
@@ -26,11 +25,21 @@ def room(request, room_name):
     selected = request.GET.get('option', None)
     data = Vote.objects.get(id=room_name)
 
-    if selected:
+    current_user_id = request.user.id
+
+
+    if selected and current_user_id:
         selected = int(selected)
         selected -= 1
         voters = data.get_voters()
-        voters[selected].append('test')
+        for v in voters:
+            for i in range(len(v)):
+                if int(v[i]) == current_user_id:
+                    v.pop(i)
+                    break
+
+
+        voters[selected].append(current_user_id)
         data.voters = str(voters)
         data.save()
 
