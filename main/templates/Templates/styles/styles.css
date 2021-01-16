@@ -1,0 +1,331 @@
+html,
+body {
+    height: 100%;
+    background-color: #ECEEF1;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1750px;
+    min-width: 900px;
+    font-family: 'Crimson Text', serif !important;
+    font-size: 25px;
+    padding: 0;
+}
+
+.header,
+.how-it-works,
+.quotation,
+.registr-block {
+    min-height: 900px;
+}
+
+.header {
+    padding: 50px 100px;
+    background-image: url(../images/lending.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.me-auto {
+    margin-right: 0px !important;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.lending {
+    width: 50%;
+    height: 300px;
+}
+
+.lending-description {
+    margin-top: 8%;
+    width: 30%;
+    text-align: center;
+    float: right;
+}
+
+.p-3 {
+    padding: 0.5rem !important;
+}
+
+.header-description {
+    margin: 80px auto;
+    max-width: 1500px;
+    min-width: 600px;
+    padding-left: 30%;
+    padding-right: 30%;
+    font-size: 50px;
+}
+
+.hd-1,
+.hd-2,
+.hd-3 {
+    mix-blend-mode: overlay;
+}
+
+.hd-2 {
+    margin-left: 20%;
+}
+
+.hd-3 {
+    margin-left: 50%;
+}
+
+.how-it-works {
+    padding: 150px 50px;
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.how-it-works > p {
+    margin: 0 auto 100px;
+    max-width: 600px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.hiw-left,
+.hiw-center,
+.hiw-right {
+    border-radius: 75px;
+    max-width: 350px;
+    min-width: 350px;
+    max-height: 350px;
+    min-height: 350px;
+    margin-right: 12%;
+    float: left;
+    background-color: white;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.hiw-left {
+    margin-left: 6%;
+}
+
+.hiw-right {
+    margin-right: 0;
+}
+
+.hiw-icon {
+    display: inline;
+    border-radius: 10px;
+    margin-bottom: 60px;
+}
+
+.quotation {
+    background-color: black;
+    padding: 60px 20px;
+}
+
+.quotation-description {
+    color: white;
+    float: left;
+    width: 550px;
+    margin-left: 5%;
+    margin-top: 12%;
+}
+
+.manager-photo {
+    float: right;
+    margin-right: 100px;
+}
+
+.manager-photo > img {
+    border-radius: 100px;
+}
+
+.qd-main-2 {
+    margin-top: 20%;
+}
+
+.qd-main-2 > span {
+    font-size: 45px;
+}
+
+.registr-block {
+    text-align: center;
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 250px 50px;
+}
+
+.registr-block-button {
+    text-decoration: none;
+    color: white;
+    padding: 20px 40px;
+    background-color: coral;
+    border-radius: 10px;
+    transition: .3s ease;
+}
+
+.registr-block-button:hover {
+    transition: .8s ease;
+    color: ghostwhite;
+    background-color: orangered;
+}
+
+.registr-block-button:active {
+    color: ghostwhite;
+    background-color: red;
+}
+
+.reg-b-sign-in {
+    color: black;
+    transition: .5s ease;
+}
+
+.reg-b-sign-in:hover {
+    transition: .5s ease;
+    color: midnightblue
+}
+
+.clr {
+    height: 200px;
+}
+
+.footer {
+    background-image: url(../images/footer.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footer {
+    max-width: 1750px;
+    min-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-top {
+    margin: -200px auto 0;
+    height: 400px;
+    max-width: 1750px;
+    min-width: 900px;
+    padding: 0px 100px;
+}
+
+.footer-top > div > ul {
+    margin-top: 20px;
+    list-style-type: circle;
+    padding-left: 0;
+}
+
+.footer-top > div > ul > li > a {
+    font-size: 25px;
+    text-decoration: none;
+    color: snow;
+}
+
+.footer-top > div > ul > li > a:hover {
+    color: antiquewhite;
+}
+
+.infooter-image,
+.links,
+.our-family,
+.contacts {
+    float: left;
+}
+
+.links,
+.our-family,
+.contacts {
+    margin-top: 80px;
+    font-size: 30px;
+    color: white;
+    height: 300px;
+    margin-left: 8%;
+}
+
+.footer-bottom {
+    color: white;
+    padding: 25px 20px;
+    margin: 0 auto;
+    height: 100px;
+    width: 1750px;
+}
+
+.copyright {
+    float: right;
+}
+
+/* Registration page */
+
+.registration {
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.reg-header {
+    max-height: 280px;
+    min-height: 100px;
+    padding: 10px;
+}
+
+.sign-in {
+    margin-top: -9%;
+    float: right;
+    min-width: 320px;
+}
+
+.sign-in-button {
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: .4s ease;
+    display: inline-block;
+    padding-top: 7px;
+    margin-top: 1%;
+    float: left;
+    max-width: 140px;
+    min-width: 100px;
+    max-height: 60px;
+    min-height: 40px;
+    background-color: rebeccapurple;
+    border-radius: 10px;
+}
+
+.sign-in-button:hover {
+    transition: .5s ease;
+    color: white;
+    background-color: purple;
+}
+
+.sign-in-button:active {
+    color: white;
+    background-color: palevioletred;
+}
+
+.reg-container {
+    padding: 20px;
+    margin: 20px auto 0;
+    background: rgba(196, 196, 196, 0.2);
+    width: 400px;
+    height: 700px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.reg-logo {
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.reg-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
