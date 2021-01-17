@@ -24,6 +24,8 @@
     <div class="auth-logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a></div>
     <div class="avatar"></div>
     <div class="form">
+        <div style="display: flex; justify-content: center; margin-top: 150px">
+
         <form action="{% url 'profile' %}" method="POST">
             {% csrf_token %}
             <img src="{% if user.avatar %}{{ user.avatar.url }}{% else %}{% static 'images/avatar_default.jpg' %}{% endif %}" alt="Аватар" width="150" height="150">
@@ -38,6 +40,7 @@
         {% if form.non_field_errors %}
             {{ form.non_field_errors }}
         {% endif %}
+        </div>
     </div>
 
 </body>

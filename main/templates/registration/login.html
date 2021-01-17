@@ -18,27 +18,23 @@
 
 
     <!-- Main CSS-->
-    <link rel="stylesheet" href="{% static 'css/styles/authorisation.css' %}">
+    <!-- <link rel="styleshefet" href="{% static 'css/styles/authorisation.css' %}"> -->
+    2<link rel="stylesheet" href="{% static 'css/styles/temp.css' %}">
 </head>
 
 <body>
-    <div class="reg-logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a></div>
-    <div class="group"></div>
-    <div class="example">
-        <h2>Войти</h2>
+    <div class="cont">
+        <div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a></div>
         <form action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
                 {% for item in form %}
                     <label>{{ item.label }}:</label><br>
                     {{ item }}
-                    <br>
+                    <br><br>
                 {% endfor %}
                 <button type="submit" class="btn btn-primary float-right btn-block">Войти</button>
             </form>
     </div>
-        <h1 class="mt-4">Авторизация</h1>
-    <hr>
-
 {#TODO нет ошибок при вводе неверного пароля #}
 </body>
 

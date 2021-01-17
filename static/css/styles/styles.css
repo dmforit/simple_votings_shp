@@ -6,7 +6,7 @@ body {
 
 .container {
     margin: 0 auto;
-    max-width: 1750px;
+    max-width: 2050px;
     min-width: 900px;
     font-family: 'Crimson Text', serif !important;
     font-size: 25px;
@@ -196,7 +196,7 @@ body {
 }
 
 .footer {
-    max-width: 1750px;
+    max-width: 2050px;
     min-width: 900px;
     margin: 0 auto;
 }
@@ -257,7 +257,8 @@ body {
 /* Registration page */
 
 .registration {
-    background-image: url(../../images/background.png);
+    /* background-image: url(../../images/background.png); */
+    margin-top: -110px;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -296,11 +297,15 @@ body {
     border-radius: 10px;
 }
 
-.sign-in-button:hover {
+/*.sign-in-button:hover {
     transition: .5s ease;
     color: white;
+    margin: 20px auto 0;
+    background: rgba(196, 196, 196, 0.2);
+    width: 350px;
     background-color: purple;
 }
+ */
 
 .sign-in-button:active {
     color: white;
@@ -308,11 +313,10 @@ body {
 }
 
 .reg-container {
+    margin-top: 50px;
     padding: 20px;
-    margin: 20px auto 0;
-    background: rgba(196, 196, 196, 0.2);
-    width: 400px;
-    height: 700px;
+    width: 350px;
+    height: 900px;
     border: 2px solid black;
     border-radius: 20px;
 }
@@ -321,6 +325,7 @@ body {
     width: 200px;
     text-align: center;
     margin: 0 auto;
+
 }
 
 .reg-btn {
