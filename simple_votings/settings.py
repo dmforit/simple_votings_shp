@@ -43,7 +43,7 @@ EMAIL_HOST_USER = 'YOUREMAIL@gmail.com' # Почта сайта & её паро�
 EMAIL_HOST_PASSWORD = 'YOURPASSWORD'
 
 # Строка ниже только для консольного тестирования отправки почты.
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 INSTALLED_APPS = [
     'django.contrib.admin',

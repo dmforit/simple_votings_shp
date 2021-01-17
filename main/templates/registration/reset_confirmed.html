@@ -1,0 +1,17 @@
+{% block content %}
+<div class="text-center" style="width: 80%; margin: 0 auto">
+  <h1>Восстановление пароля</h1>
+  <h6 style="width: 60%; margin: 0 auto">
+    Ваш пароль был сброшен. Введите новый.
+  </h6>
+</div>
+<br />
+<form action="" method="POST">
+  {% csrf_token %}
+  {{form}}
+  <input type="submit" value="Reset Password"/>
+</form>
+<div class="text-center">
+  <a href="{% url 'index' %}">Домой</a>
+</div>
+{% endblock%}

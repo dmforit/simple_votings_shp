@@ -57,7 +57,13 @@ urlpatterns = [
     path('vote/rooms/', include('vote.urls', namespace='vote'), name='vote_room'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('fav_vote/<str:pk>', vote_views.fav_view, name='fav_vote'),
-    path('favorites/', favorite_views.favorites, name="favorites")
+    path('favorites/', favorite_views.favorites, name="favorites"),
+
+    path('reset', auth_views.PasswordResetView.as_view(template_name = "registration/reset.html"), name ='reset_password'),
+    path('reset/sent/', auth_views.PasswordResetDoneView.as_view(template_name = "registration/reset_sent.html"), name ='password_reset_done'),
+    path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(template_name = "registration/reset_confirmed.html"), name ='password_reset_confirm'),
+    path('reset/success/', auth_views.PasswordResetCompleteView.as_view(template_name = "registration/reset_success.html"), name ='password_reset_complete'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # TODO serve avatars securely

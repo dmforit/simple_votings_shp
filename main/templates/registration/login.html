@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkzoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <title>HPW - Автоизация</title>
+    <title>HPW - Авторизация</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&display=swap');
@@ -19,7 +19,7 @@
 
     <!-- Main CSS-->
     <!-- <link rel="styleshefet" href="{% static 'css/styles/authorisation.css' %}"> -->
-    2<link rel="stylesheet" href="{% static 'css/styles/temp.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles/temp.css' %}">
 </head>
 
 <body>
@@ -33,6 +33,7 @@
                     <br><br>
                 {% endfor %}
                 <button type="submit" class="btn btn-primary float-right btn-block">Войти</button>
+                <a href = "{% url 'reset_password' %}"> Забыли пароль? </a>
             </form>
     </div>
 {#TODO нет ошибок при вводе неверного пароля #}

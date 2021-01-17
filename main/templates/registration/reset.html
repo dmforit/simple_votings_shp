@@ -1,0 +1,20 @@
+{% block content %}
+
+<div class="text-center" style="width: 80%; margin: 0 auto">
+  <h1>Восстановление пароля</h1>
+  <h3>
+    Забыли пароль? Введите адрес своей электронной почты, используемой при регистрации.
+  </h3>
+</div>
+<br/>
+
+<form action="" method="POST" class="text-center">
+  {% csrf_token %}
+  {{form}}
+  <input type="submit" value="Send email" /><br>
+</form><br/>
+<div class="text-center">
+  <a href="{% url 'index' %}">Домой</a>
+</div>
+
+{% endblock%}
