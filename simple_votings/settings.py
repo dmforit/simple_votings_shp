@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -35,6 +34,16 @@ DEBUG = True
 ALLOWED_HOSTS = []
 AUTH_USER_MODEL = 'accounts.CustomUser'
 # Application definition
+
+# SECURITY WARNING: почта сайта; пароль не палим.
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'YOUREMAIL@gmail.com' # Почта сайта & её пароль на основе GMail или иного сервиса.
+EMAIL_HOST_PASSWORD = 'YOURPASSWORD'
+
+# Строка ниже только для консольного тестирования отправки почты.
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
