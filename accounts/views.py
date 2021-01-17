@@ -1,13 +1,18 @@
 import sys
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, User
+
 from django.contrib.auth import authenticate, login
+from django.core.mail import send_mail
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
-from django.core.mail import send_mail
+
 from .forms import CustomUserChangeForm, CustomUserCreationForm
-sys.path.append('..')
 from simple_votings.settings import EMAIL_HOST_USER
+
+sys.path.append('..')
+
+# TODO store email data securely
+
 
 class UserCreationView(generic.CreateView):
     form_class = CustomUserCreationForm
