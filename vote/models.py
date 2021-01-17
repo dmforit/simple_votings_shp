@@ -1,6 +1,7 @@
 import uuid
 import ast
 from django.db import models
+import uuid
 from django.utils import timezone
 
 
@@ -22,3 +23,6 @@ class Vote(models.Model):
     def get_voter(self, index):
         voters = self.get_voters()
         return voters[index]
+
+    def __str__(self):
+        return str(self.id)

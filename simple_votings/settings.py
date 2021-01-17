@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'accounts',
     'bootstrap4',
     'vote',
-    'channels'
+    'channels',
+    'favorites'
 ]
 
 MIDDLEWARE = [

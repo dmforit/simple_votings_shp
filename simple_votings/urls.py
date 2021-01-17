@@ -22,6 +22,7 @@ from django.conf import settings
 from accounts import views as accounts_views
 from main import views
 from vote import views as vote_views
+from favorites import views as favorite_views
 from django.contrib.auth import views as auth_views
 
 from main.views import get_menu_context
@@ -55,7 +56,8 @@ urlpatterns = [
     path('vote/', vote_views.new_vote, name='vote'),
     path('vote/rooms/', include('vote.urls', namespace='vote'), name='vote_room'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('fav_vote/<str:pk>', vote_views.fav_view, name='fav_vote')
+    path('fav_vote/<str:pk>', vote_views.fav_view, name='fav_vote'),
+    path('favorites/', favorite_views.favorites, name="favorites")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # TODO serve avatars securely
