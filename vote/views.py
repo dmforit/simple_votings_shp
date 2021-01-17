@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from vote.models import Vote
 
 
@@ -45,7 +47,12 @@ def room(request, room_name):
 
     return render(request, 'vote/room.html', context)
 
+
+def fav_view(request, pk):
+    vote = get_object_or_404(Vote, id=request.POST.get('vote_id'))
+    request.user.fav_votes.add(vote.id)
+    return HttpResponseRedirect(reverse('vote:room', args=[str(pk)]))
+
 # TODO voting pages as layout extension
-# TODO add bootstrap to base.html
 # TODO vote can be created by unauthorised user
 # TODO add design to votes

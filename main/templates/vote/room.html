@@ -20,7 +20,11 @@
 
 <input type="submit" value="Submit">
 </form>
-
+<br>
+<form action="{% url 'fav_vote' data.id %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" name="vote_id" class="btn btn-primary btn-sm" value="{{ data.id }}">Добавить в избранное</button>
+</form>
 
 </body>
 </html>

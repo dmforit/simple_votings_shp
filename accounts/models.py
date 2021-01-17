@@ -5,6 +5,7 @@ from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.dispatch import receiver
+from vote.models import Vote
 
 
 def path_and_rename(instance, filename):
@@ -22,6 +23,7 @@ def avatar_validator(avatar_image):
 
 class CustomUser(AbstractUser):
     avatar = models.ImageField(null=True, blank=True, upload_to=path_and_rename, validators=[avatar_validator])
+    fav_votes = models.ManyToManyField(Vote, related_name="fav_votes", blank=True)
 
     def __str__(self):
         return self.username

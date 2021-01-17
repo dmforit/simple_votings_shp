@@ -53,8 +53,9 @@ urlpatterns = [
             'pagename': 'Авторизация'}
     ), name='login'),
     path('vote/', vote_views.new_vote, name='vote'),
-    path('vote/rooms/', include('vote.urls', namespace='vote')),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout')
+    path('vote/rooms/', include('vote.urls', namespace='vote'), name='vote_room'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('fav_vote/<str:pk>', vote_views.fav_view, name='fav_vote')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # TODO serve avatars securely
