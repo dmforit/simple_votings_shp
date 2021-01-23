@@ -13,6 +13,14 @@
 
     <title>HPW - Регистрация</title>
 
+    <style>
+        input:focus + .check,
+        input:not(:placeholder-shown) + .check {
+            transform: scale(.9) translateY(-25px);
+            transition: transform 150ms;
+            color: black;
+        }
+    </style>
     <!-- Main CSS-->
     <link rel="stylesheet" href="{% static 'css/styles/auth-reg.css' %}">
 </head>
@@ -26,40 +34,34 @@
         <div class="row">
             <div class="col">
                 {{ form.username }}
-                <!--                <input type="text" required>-->
                 <div class="check">Логин</div>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 {{ form.email }}
-                <!--                <input type="email" class="l-lower" required>-->
                 <div class="check">Почта</div>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 {{ form.first_name }}
-                <!--                <input type="text" class="f-l-upper" required>-->
                 <div class="check">Имя</div>
             </div>
             <div class="col">
                 {{ form.last_name }}
-                <!--                <input type="text" class="f-l-upper" required>-->
                 <div class="check">Фамилия</div>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 {{ form.password1 }}
-                <!--                <input type="password" required>-->
                 <div class="check">Пароль</div>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 {{ form.password2 }}
-                <!--                <input type="password" required>-->
                 <div class="check">Подтверждение пароля</div>
             </div>
         </div>
