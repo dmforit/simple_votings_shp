@@ -13,54 +13,70 @@
 
     <title>HPW - Регистрация</title>
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&display=swap');
-    </style>
-
-
     <!-- Main CSS-->
-    <link rel="stylesheet" href="{% static 'css/styles/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles/auth-reg.css' %}">
 </head>
 
 <body class="registration">
-<div class="reg-header">
-    <div class="sign-in">
-        <p style="text-align: center; float: left; margin-right: 2%">Уже есть аккаунт?<br><a href="#">Я не помню свой
-            пароль</a></p>
-
-    </div>
-</div>
-
-<div style="margin-top: 20px">
-    <div class="reg-logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a></div>
-</div>
-
-<div style="display: flex; justify-content: center;">
-<div class="reg-container">
-    <form action="#" method="post">
-        <p style="text-align: center; font-size: 20px; margin-bottom: 30px;">Создать HPW аккаунт</p>
-        <form method="post">
-            {% csrf_token %}
-            {% for field in form %}
-                {{ field.label_tag }}<br>
-                {{ field }}
-                {% if field.help_text %}
-                    <small style="color: grey">{{ field.help_text }}</small>
-                {% endif %}
-                {% for error in field.errors %}
-                    <p style="color: red">{{ error }}</p>
-                {% endfor %}
-                <br><br>
-            {% endfor %}
-            <button class="btn btn-primary reg-btn" style="margin-top: -20px" type="submit">Зарегистрироваться</button>
-        </form>
-        <a href="{% url 'login' %}" class="sign-in-button">Войти</a>
-        <p style="text-align: center; color: grey; font-size: 12px;">Создавая учётную запись, вы соглашаетесь с нашими
-            <a href="#" style="text-decoration: none">Условиями</a></p>
+<div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a></div>
+<div class="reg-form">
+    <div class="label">Регистрация</div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col">
+                {{ form.username }}
+                <!--                <input type="text" required>-->
+                <div class="check">Логин</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form.email }}
+                <!--                <input type="email" class="l-lower" required>-->
+                <div class="check">Почта</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form.first_name }}
+                <!--                <input type="text" class="f-l-upper" required>-->
+                <div class="check">Имя</div>
+            </div>
+            <div class="col">
+                {{ form.last_name }}
+                <!--                <input type="text" class="f-l-upper" required>-->
+                <div class="check">Фамилия</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form.password1 }}
+                <!--                <input type="password" required>-->
+                <div class="check">Пароль</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form.password2 }}
+                <!--                <input type="password" required>-->
+                <div class="check">Подтверждение пароля</div>
+            </div>
+        </div>
+        <div class="submit-wrapper">
+            <div class="submit-button">
+                <button type="submit" class="submit">Создать аккаунт!</button>
+            </div>
+        </div>
     </form>
 </div>
+<div class="reg-footer">
+    <span>Уже есть аккаунт? <a href="{% url 'login' %}">Войдите</a></span>
 </div>
 
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
 </body>
-
 </html>

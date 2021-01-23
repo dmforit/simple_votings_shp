@@ -45,6 +45,7 @@ class UserChangeView(generic.UpdateView):
     def get_object(self, **kwargs):
         return self.request.user
 
+
 class UserProfileView(generic.TemplateView):
     form_class = CustomUserChangeForm
     template_name = 'registration/profile.html'
