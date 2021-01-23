@@ -7,6 +7,7 @@ from vote.models import Vote
 def new_vote(request):
     title = request.GET.get('title', None)
     options = request.GET.get('options', None)
+    vote_type = request.GET.get('type', None)
 
     if title and options:
         list_options = list(map(str, options.split('\n')))
@@ -15,7 +16,7 @@ def new_vote(request):
 
         list_voters = [[]] * len(list_options)
 
-        v = Vote(title=title, options=str(list_options), voters=str(list_voters))
+        v = Vote(title=title, options=str(list_options), voters=str(list_voters), vote_type=vote_type)
         v.save()
 
         return redirect('rooms/' + str(v.id))
@@ -24,14 +25,16 @@ def new_vote(request):
 
 
 def room(request, room_name):
-    selected = request.GET.get('option', None)
+    request_data = request.POST
     data = Vote.objects.get(id=room_name)
-
     current_user_id = request.user.id
 
+    if 'option' in dict(request_data):
+        selected = dict(request_data)['option']
+    else:
+        selected = None
+
     if selected and current_user_id:
-        selected = int(selected)
-        selected -= 1
         voters = data.get_voters()
         for v in voters:
             for i in range(len(v)):
@@ -39,7 +42,11 @@ def room(request, room_name):
                     v.pop(i)
                     break
 
-        voters[selected].append(current_user_id)
+        for select in selected:
+            select = int(select)
+            select -= 1
+            voters[select].append(current_user_id)
+
         data.voters = str(voters)
         data.save()
 

@@ -8,6 +8,7 @@ from django.utils import timezone
 class Vote(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
+    vote_type = models.CharField(max_length=50)
     options = models.CharField(max_length=500)
     voters = models.CharField(max_length=500)
     date = models.DateTimeField(default=timezone.now)

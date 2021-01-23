@@ -7,19 +7,35 @@
 </head>
 <body>
 {{ data.title }}<br>
-<form>
-{% for option in data.get_options%}
+<form method="post">
+{% if data.vote_type == 'check-box' %}
+    {% for option in data.get_options%}
 
-    {% with data.get_voters|list_item:forloop.counter as l%}
+        {% with data.get_voters|list_item:forloop.counter as l%}
 
-    <input type="radio" name="option" value={{ forloop.counter|stringformat:"i" }}> {{ option }} {{ l|length }} <Br>
+            <input type="checkbox" name="option" value={{ forloop.counter|stringformat:"i" }}> {{ option }} {{ l|length }} {% csrf_token %}<Br>
 
-    {% endwith %}
+        {% endwith %}
 
-{% endfor %}
-
-<input type="submit" value="Submit">
+    {% endfor %}
+    <input type="submit" value="Submit">
+{% endif %}
 </form>
+<form method="post">
+{% if data.vote_type == 'one-option' %}
+    {% for option in data.get_options%}
+
+        {% with data.get_voters|list_item:forloop.counter as l%}
+
+            <input type="radio" name="option" value={{ forloop.counter|stringformat:"i" }}> {{ option }} {{ l|length }} {% csrf_token %} <Br>
+
+        {% endwith %}
+
+    {% endfor %}
+    <input type="submit" value="Submit">
+{% endif %}
+</form>
+
 <br>
 <form action="{% url 'fav_vote' data.id %}" method="POST">
     {% csrf_token %}
