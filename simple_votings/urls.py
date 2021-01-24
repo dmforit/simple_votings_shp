@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
 
 from accounts import views as accounts_views
+from accounts.forms import CustomUserLoginForm
 from main import views
 from vote import views as vote_views
 from favorites import views as favorite_views
@@ -48,7 +48,7 @@ urlpatterns = [
             'pagename': 'Профиль пользователя'}
     ), name='profile'),
 
-    path('login/', auth_views.LoginView.as_view(
+    path('login/', accounts_views.UserLoginView.as_view(
         extra_context={
             'menu': get_menu_context(),
             'pagename': 'Авторизация'}

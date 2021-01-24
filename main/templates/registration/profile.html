@@ -35,11 +35,12 @@
             <p>Почта: {{ user.email }}</p>
             <p>Дата регистрации: {{ user.date_joined }}</p>
             <p>Вы можете <a href="{% url 'edit_profile' %}">отредактировать свой профиль</a>.</p>
+            {% if form.non_field_errors %}
+                {{ form.non_field_errors }}
+            {% endif %}
         </form>
 
-        {% if form.non_field_errors %}
-            {{ form.non_field_errors }}
-        {% endif %}
+
         </div>
     </div>
 

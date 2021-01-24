@@ -1,12 +1,13 @@
 import sys
 
 from django.contrib.auth import authenticate, login
+from django.contrib.auth import views as auth_views
 from django.core.mail import send_mail
-from django.shortcuts import redirect
+from django.shortcuts import redirect, resolve_url
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import CustomUserChangeForm, CustomUserCreationForm
+from .forms import CustomUserChangeForm, CustomUserCreationForm, CustomUserLoginForm
 from simple_votings.settings import EMAIL_HOST_USER
 
 sys.path.append('..')
@@ -49,3 +50,8 @@ class UserChangeView(generic.UpdateView):
 class UserProfileView(generic.TemplateView):
     form_class = CustomUserChangeForm
     template_name = 'registration/profile.html'
+
+
+class UserLoginView(auth_views.LoginView):
+    form_class = CustomUserLoginForm
+    template_name = 'registration/login.html'
