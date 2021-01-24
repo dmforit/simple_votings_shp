@@ -34,6 +34,16 @@
                 <div class="check">Пароль</div>
             </div>
         </div>
+        {% if form.errors %}
+            <div class="row">
+                <div class="col">
+                Errors<br>
+                    {% for error in form.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
         <div class="submit-wrapper">
             <div class="submit-button">
                 <button type="submit" class="submit">Войти</button>

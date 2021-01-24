@@ -3,6 +3,7 @@ import sys
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import views as auth_views
 from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, resolve_url
 from django.urls import reverse_lazy
 from django.views import generic
@@ -32,8 +33,7 @@ class UserCreationView(generic.CreateView):
 
         user = authenticate(username=username, password=password)
         login(self.request, user)
-        return redirect('profile')
-
+        return HttpResponseRedirect(self.get_success_url())
     success_url = reverse_lazy('index')
     template_name = 'registration/signup.html'
 
@@ -55,3 +55,7 @@ class UserProfileView(generic.TemplateView):
 class UserLoginView(auth_views.LoginView):
     form_class = CustomUserLoginForm
     template_name = 'registration/login.html'
+
+    def form_valid(self, form):
+        login(self.request, form.get_user())
+        return HttpResponseRedirect(self.get_success_url())
