@@ -61,5 +61,4 @@ def fav_view(request, pk):
     return HttpResponseRedirect(reverse('vote:room', args=[str(pk)]))
 
 # TODO voting pages as layout extension
-# TODO vote can be created by unauthorised user
 # TODO add design to votes

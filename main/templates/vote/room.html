@@ -32,14 +32,23 @@
         {% endwith %}
 
     {% endfor %}
-    <input type="submit" value="Submit">
+    {% if user.is_authenticated %}
+        <input type="submit" value="Submit">
+    {% endif %}
+
 {% endif %}
 </form>
 
 <br>
 <form action="{% url 'fav_vote' data.id %}" method="POST">
     {% csrf_token %}
-    <button type="submit" name="vote_id" class="btn btn-primary btn-sm" value="{{ data.id }}">Добавить в избранное</button>
+    {% if user.is_authenticated %}
+        <button type="submit" name="vote_id" class="btn btn-primary btn-sm" value="{{ data.id }}">Добавить в избранное</button>
+    {% else %}
+        Вы не вошли на сайт. <a href="{% url 'login' %}">Нажмите здесь, чтобы войти</a>.<br>
+        Ещё не зарегистрированы? <a href="{% url 'signup' %}">Создайте новый аккаунт</a>.
+    {% endif %}
+
 </form>
 
 </body>

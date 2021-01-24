@@ -23,7 +23,12 @@
     </label>
 
     <h3>Create</h3>
-    <input type="submit" value="Create">
+    {% if user.is_authenticated %}
+        <input type="submit" value="Create">
+    {% else %}
+        Вы не вошли на сайт. Чтобы создать голосование, <a href="{% url 'login' %}">войдите</a>.<br>
+        Ещё не зарегистрированы? <a href="{% url 'signup' %}">Создайте новый аккаунт</a>.
+    {% endif %}
 </form>
 <h1>{{ test }}</h1>
 
