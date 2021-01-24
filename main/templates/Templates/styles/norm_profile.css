@@ -1,0 +1,332 @@
+body{
+opacity: 0;
+transition: 1.5s opacity ease-in-out;
+}
+
+.body_visible{
+opacity: 1;
+}
+
+.form{
+position: absolute;
+width: 1301px;
+height: 737px;
+left: 309px;
+top: 196px;
+
+border: 2px solid black;
+background: rgba(196, 196, 196, 0.46);
+border-radius: 20px;
+}
+
+.form_in_form{
+position: absolute;
+width: 859px;
+height: 517px;
+left: 72px;
+top: 155px;
+
+border-radius: 20px;
+background: rgba(255, 255, 255, 0.37);
+}
+
+.profile{
+position: absolute;
+width: 150px;
+height: 41px;
+left: 576px;
+top: 49px;
+
+font-size: 35px;
+line-height: 41px;
+/* identical to box height */
+
+
+color: #000000;
+}
+
+.name_is_here{
+position: absolute;
+width: 41px;
+height: 23px;
+left: 1700px;
+top: 70px;
+
+font-size: 20px;
+line-height: 23px;
+
+color: #000000;
+}
+
+.avatar{
+position: absolute;
+width: 100px;
+height: 100px;
+left: 1774px;
+top: 31px;
+
+background: rgba(196, 196, 196, 0.46);
+border-radius: 100%;
+}
+
+.avatar_number_two{
+position: absolute;
+width: 100px;
+height: 100px;
+left: 1082px;
+top: 155px;
+
+border: 1px solid black;
+border-radius: 20px;
+}
+
+.FIO{
+position: absolute;
+width: 44px;
+height: 23px;
+left: 1110px;
+top: 271px;
+
+font-size: 20px;
+line-height: 23px;
+
+color: #000000;
+}
+
+.My_data{
+position: absolute;
+width: 207px;
+height: 58px;
+left: 31px;
+top: 28px;
+
+color: black;
+transition: 1s;
+background: rgba(196, 196, 196, 0.46);
+border-radius: 15px;
+}
+
+.My_data:hover{
+background: black;
+color: white;
+transition: 1s;
+}
+
+.My_data1{
+width: 204px;
+height: 23px;
+display: flex;
+text-align: center;
+justify-content: center;
+margin-top: 16px;
+    
+font-size: 18px;
+line-height: 23px;
+}
+
+.My_election{
+position: absolute;
+width: 207px;
+height: 58px;
+left: 326px;
+top: 28px;
+
+color: black;
+transition: 1s;
+background: rgba(196, 196, 196, 0.46);
+border-radius: 15px;
+}
+
+.My_election:hover{
+background: black;
+color: white;
+transition: 1s;
+}
+
+.My_election1{
+width: 204px;
+height: 23px;
+display: flex;
+text-align: center;
+justify-content: center;
+margin-top: 16px;
+    
+font-size: 18px;
+line-height: 23px;
+}
+
+.Create_election{
+position: absolute;
+width: 207px;
+height: 58px;
+left: 621px;
+top: 28px;
+
+color: black;
+transition: 1s;
+background: rgba(196, 196, 196, 0.46);
+border-radius: 15px;
+}
+
+.Create_election:hover{
+background: black;
+color: white;
+transition: 1s;
+}
+
+.Create_election1{
+width: 204px;
+height: 23px;
+display: flex;
+text-align: center;
+justify-content: center;
+margin-top: 16px;
+    
+font-size: 18px;
+line-height: 23px;
+}
+
+.phone_number{
+position: absolute;
+width: 322px;
+height: 44px;
+left: 59px;
+top: 187px;
+
+background: rgba(196, 196, 196, 0.46);
+border-radius: 15px;
+}
+
+.phone_number1{
+display: flex;
+text-align: center;
+justify-content: center;
+margin-top: 10px;
+
+color: #000000;
+}
+
+.login{
+position: absolute;
+width: 322px;
+height: 44px;
+left: 59px;
+top: 187px;
+
+background: rgba(196, 196, 196, 0.46);
+border-radius: 15px;
+}
+
+.login1{
+display: flex;
+text-align: center;
+justify-content: center;
+margin-top: 10px;
+
+color: #000000;
+}
+
+.password{
+position: absolute;
+width: 322px;
+height: 44px;
+left: 460px;
+top: 187px;
+
+background: rgba(196, 196, 196, 0.46);
+border-radius: 15px;
+}
+
+.password1{
+display: flex;
+text-align: center;
+justify-content: center;
+margin-top: 10px;
+
+color: #000000;
+}
+
+.name{
+position: absolute;
+width: 322px;
+height: 44px;
+left: 59px;
+top: 273px;
+    
+background: rgba(196, 196, 196, 0.46);
+border-radius: 15px;
+}
+
+.name1{
+display: flex;
+text-align: center;
+justify-content: center;
+margin-top: 10px;
+
+color: #000000;
+}
+
+.surname{
+position: absolute;
+width: 322px;
+height: 44px;
+left: 460px;
+top: 273px;
+
+background: rgba(196, 196, 196, 0.46);
+border-radius: 15px;
+}
+
+.surname1{
+display: flex;
+text-align: center;
+justify-content: center;
+margin-top: 10px;
+
+color: #000000;
+}
+
+.e-mail{
+position: absolute;
+width: 724px;
+height: 44px;
+left: 59px;
+top: 359px;
+    
+background: rgba(196, 196, 196, 0.46);
+border-radius: 15px;
+}
+
+.e-mail1{
+display: flex;
+text-align: center;
+justify-content: center;
+margin-top: 10px;
+
+color: #000000;
+}
+
+.date_of_registration{
+position: absolute;
+width: 724px;
+height: 44px;
+left: 59px;
+top: 435px;
+    
+background: rgba(196, 196, 196, 0.46);
+border-radius: 15px;
+}
+
+.date_of_registration1{
+display: flex;
+text-align: center;
+justify-content: center;
+margin-top: 10px;
+
+color: #000000;
+}
+
+.text_with_link{
+    margin-top: 695px;
+    margin-left: 300px;
+}
