@@ -70,6 +70,14 @@
                 <button type="submit" class="submit">Создать аккаунт!</button>
             </div>
         </div>
+        {% for error in form.non_field_errors %}
+            <div class="row">
+                <div class="col">
+                    Errors:
+                    {{ form.non_field_errors }}
+                </div>
+            </div>
+        {% endfor %}
     </form>
 </div>
 <div class="reg-footer">
