@@ -31,7 +31,7 @@ input {
 }
 
 input:focus + .check,
-input:not(:placeholder-shown) + .check {
+input:not(:placeholder-shown) + .check{
     transform: scale(.9) translateY(-25px);
     transition: transform 150ms;
     color: black;
@@ -87,7 +87,7 @@ label {
 .label {
     text-align: center;
     font-size: 25px;
-    margin: 10px 0px 30px;
+    margin: 10px 0px 35px;
 }
 
 .row {
@@ -131,4 +131,8 @@ label {
 
 .l-lower {
     text-transform: lowercase;
+}
+
+.reset-password {
+    margin-left: 5%;
 }

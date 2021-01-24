@@ -12,20 +12,11 @@
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <title>HPW - Регистрация</title>
-
-    <style>
-        input:focus + .check,
-        input:not(:placeholder-shown) + .check {
-            transform: scale(.9) translateY(-25px);
-            transition: transform 150ms;
-            color: black;
-        }
-    </style>
     <!-- Main CSS-->
     <link rel="stylesheet" href="{% static 'css/styles/auth-reg.css' %}">
 </head>
 
-<body class="registration">
+<body>
 <div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a></div>
 <div class="reg-form">
     <div class="label">Регистрация</div>
