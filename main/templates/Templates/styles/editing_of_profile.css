@@ -1,0 +1,136 @@
+body{
+opacity: 0;
+transition: 1.5s opacity ease-in-out;
+}
+
+.body_visible{
+opacity: 1;
+}
+
+.form{
+position: absolute;
+width: 1301px;
+height: 737px;
+left: 309px;
+top: 196px;
+
+border: 2px solid black;
+background: rgba(196, 196, 196, 0.46);
+border-radius: 20px;
+}
+
+.form_in_form{
+position: absolute;
+width: 859px;
+height: 517px;
+left: 72px;
+top: 155px;
+
+border-radius: 20px;
+background: rgba(255, 255, 255, 0.37);
+}
+
+.profile_redaction1{
+position: absolute;
+width: 150px;
+height: 41px;
+left: 276px;
+top: 49px;
+    
+font-size: 35px;
+line-height: 41px;
+    
+color: #000000;
+}
+
+.profile_redaction2{
+position: absolute;
+width: 150px;
+height: 41px;
+left: 560px;
+top: 49px;
+    
+font-size: 35px;
+line-height: 41px;
+    
+color: #000000;
+}
+
+.name_is_here{
+position: absolute;
+width: 41px;
+height: 23px;
+left: 1700px;
+top: 70px;
+
+font-size: 20px;
+line-height: 23px;
+
+color: #000000;
+}
+
+.avatar{
+position: absolute;
+width: 100px;
+height: 100px;
+left: 1774px;
+top: 31px;
+
+background: rgba(196, 196, 196, 0.46);
+border-radius: 100%;
+}
+
+.avatar_number_two{
+position: absolute;
+width: 100px;
+height: 100px;
+left: 1082px;
+top: 155px;
+
+border: 1px solid black;
+border-radius: 20px;
+}
+
+.FIO{
+position: absolute;
+width: 44px;
+height: 23px;
+left: 1110px;
+top: 271px;
+
+font-size: 20px;
+line-height: 23px;
+
+color: #000000;
+}
+
+.back1{
+width: 100px;
+height: 23px;
+display: flex;
+text-align: center;
+justify-content: center;
+margin-top: 16px;
+    
+font-size: 18px;
+line-height: 23px;
+}
+
+.back{
+position: absolute;
+width: 100px;
+height: 58px;
+left: 20px;
+top: 450px;
+
+color: black;
+transition: 1s;
+background: rgba(196, 196, 196, 0.46);
+border-radius: 15px;
+}
+
+.back:hover{
+    transition: 1s;
+    background-color: black;
+    color: white;
+}
