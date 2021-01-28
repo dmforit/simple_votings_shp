@@ -35,7 +35,7 @@
             <div class="container-nav">
                 <div class="row">
                     <div class="col c-nav-wrapper">
-                        <div class="c-nav-cols cnc-1"><a href="norm_profile.html" class="active">Личные данные</a></div>
+                        <div class="c-nav-cols cnc-1"><a href="norm_profile.html" class="non-active">Личные данные</a></div>
                     </div>
                     <div class="col c-nav-wrapper">
                         <div class="c-nav-cols cnc-2"><a href="#" class="non-active">Создать голосование</a></div>
@@ -47,30 +47,51 @@
             </div>
             <hr>
             <div class="container-data">
-                <div class="row con-row">
-                    <div class="col-2 c-d-titles"><span>Имя</span></div>
-                    <div class="col-10 con-data-divs"><span>Ванечка</span></div>
-                </div>
-                <div class="row con-row check-row">
-                    <div class="col-10 con-data-divs"><span>Крупнов</span></div>
-                    <div class="col-2 c-d-titles"><span>Фамилия</span></div>
-                </div>
-                <div class="row con-row">
-                    <div class="col-2 c-d-titles"><span>Логин</span></div>
-                    <div class="col-10 con-data-divs"><span>masterVanya</span></div>
-                </div>
-                <div class="row con-row check-row">
-                    <div class="col-10 con-data-divs"><span>mastero@mail.ru</span></div>
-                    <div class="col-2 c-d-titles"><span>Почта</span></div>
-                </div>
-                <div class="row con-row">
-                    <div class="col-2 c-d-titles"><span>Пароль</span></div>
-                    <div class="col-10 con-data-divs"><span>suP3RProger</span></div>
-                </div>
-                <div class="row con-row">
-                    <div class="col-9 con-data-divs"><span>01.01.2021</span></div>
-                    <div class="col-3 c-d-titles"><span>Дата регистрации</span></div>
-                </div>
+                <form action="#" method="post">
+                    <div class="row">
+                        <div class="col col-change">
+                            <input type="text" placeholder="Логин" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-change">
+                            <input type="email" placeholder="Почта" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-change">
+                            <input type="text" placeholder="Имя" class="f-l-upper" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-change">
+                            <input type="text" placeholder="Фамилия" class="f-l-upper" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-change">
+                            <input type="password" placeholder="Пароль" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-change">
+                            <input type="password" placeholder="Подтверждение пароля" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="load-av"><span>Загрузить аватар</span></div>
+                        </div>
+                        <div class="col-9">
+                            <input type="file" class="form-control mt-2">
+                        </div>
+                    </div>
+                    <div class="submit-wrapper">
+                        <div class="submit-button">
+                            <button type="submit" class="submit">Сохранить изменения</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="avatar col-3">
@@ -83,7 +104,7 @@
             </div>
             <div class="avatar-bottom">
                 <hr>
-                <p class="a-b-text"><a href="edit_profile.html">Редактировать профиль</a></p>
+                <p class="a-b-text"><a href="norm_profile.html">Вернуться на главную</a></p>
             </div>
         </div>
     </div>
