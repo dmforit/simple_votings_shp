@@ -207,26 +207,6 @@ hr {
     margin: 0 auto;
 }
 
-input:not([type="file"]) {
-    width: 100%;
-    font-weight: 500;
-    font-size: 14px;
-    border: none;
-    text-align: center;
-    -webkit-box-shadow: 0 2px 14px 4px rgba(101, 119, 139, .12);
-    box-shadow: 0 2px 14px 4px rgba(101, 119, 139, .12);
-    padding: 5px 0;
-    height: 40px;
-    margin-bottom: 25px;
-    text-align: center;
-    position: relative;
-    outline: 0;
-}
-
-input[type="email"]:not(:placeholder-shown) {
-    text-transform: lowercase;
-}
-
 .submit-wrapper {
     margin-top: 25px;
 }
@@ -254,33 +234,87 @@ input[type="email"]:not(:placeholder-shown) {
     border: 1px solid #fff;
 }
 
-.f-l-upper {
-    text-transform: capitalize;
-}
+/* Creation */
 
-.load-av {
+.form-h3 {
     text-align: center;
-    -webkit-box-shadow: 0 2px 14px 4px rgba(101, 119, 139, .12);
-    box-shadow: 0 2px 14px 4px rgba(101, 119, 139, .12);
-    height: 50px;
-    border-radius: 20px;
-}
-
-.load-av > span {
-    display: inline-block;
-    margin-top: 12px;
     font-weight: 600;
+    font-size: 25px;
+    margin-bottom: 50px;
 }
 
-.form-control,
-.form-control-lg {
-    -webkit-box-shadow: 0 2px 14px 4px rgba(101, 119, 139, .12);
+input {
+    width: 100%;
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    padding: 5px 0;
+    border-bottom: 2px solid #e5e5e5;
+    height: 35px;
+}
+
+.col {
+    position: relative;
+}
+
+.check {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    color: grey;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 150ms;
+}
+
+input:focus + .check,
+input:not(:placeholder-shown) + .check{
+    transform: scale(.9) translateY(-25px);
+    transition: transform 150ms;
+    color: black;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid #000;
+    transition: .8s ease;
+}
+
+label {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+select {
+    width: 100%;
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    padding: 5px 0;
+    height: 50px;
+    box-shadow: 0 2px 14px 4px rgba(101, 119, 139, .12);
+    background-color: #fff;
+    margin-top: 10px;
+    font-style: oblique;
+    padding-left: 15px;
+}
+
+select:focus {
+    outline: none;
+}
+
+textarea {
+    margin-top: 20px;
+    width: 100%;
     box-shadow: 0 2px 14px 4px rgba(101, 119, 139, .12);
     border: none;
+    font-size: 12px;
+    font-style: italic;
+    height: 120px;
+    resize: none;
 }
 
-.form-control:focus,
-.form-control-lg:focus {
-    box-shadow: none;
-    border-color: inherit;
+textarea:focus {
+    outline: none;
 }
