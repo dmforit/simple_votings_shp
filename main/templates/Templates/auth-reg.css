@@ -122,6 +122,10 @@ label {
     color: black;
 }
 
+.submit:focus {
+    outline: none;
+}
+
 .submit:active {
     border: 1px solid #fff;
 }
@@ -136,4 +140,8 @@ label {
 
 .reset-password {
     padding-left: 20px;
+}
+
+.center-reset {
+    text-align: center;
 }
