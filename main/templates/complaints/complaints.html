@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HPW - Жалоба</title>
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+        {% if has_data %}
+            <h2>Состояние жалобы</h2>
+            <p>Ваша жалоба была успешно отправлена</p>
+            <p>Содержание: "{{ complaint_text }}"</p>
+        {% else %}
+            <h1> Написать жалобу </h1>
+
+            <form action="{% url 'complaints' %}" method="POST">
+                {% csrf_token %}
+                <p> Комментарий: {{ form.text }}</p>
+                <input type="submit" value="Отправить">
+            </form>
+        {% endif %}
+
+    {% else %}
+        <p>Вы должны быть зарегистрированы, чтобы оставить жалобу</p>
+    {% endif %}
+</body>
+</html>
