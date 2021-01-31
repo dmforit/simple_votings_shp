@@ -16,7 +16,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&display=swap');
     </style>
 
-    <link rel="stylesheet" href="{% static 'css/styles/norm_profile.css' %}">
+    <link rel="stylesheet" href="styles/norm_profile.css">
 </head>
 
 <script>
@@ -28,7 +28,7 @@
 <body>
     <div class="header">
         <div class="h-logo">
-            <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
     </div>
     <div class="container row">
@@ -36,10 +36,10 @@
             <div class="container-nav">
                 <div class="row">
                     <div class="col c-nav-wrapper">
-                        <div class="c-nav-cols cnc-1"><a href="{% url 'profile' %}" class="non-active">Личные данные</a></div>
+                        <div class="c-nav-cols cnc-1"><a href="norm_profile.html" class="non-active">Личные данные</a></div>
                     </div>
                     <div class="col c-nav-wrapper">
-                        <div class="c-nav-cols cnc-2"><a href="{% url 'vote' %}" class="non-active">Создать голосование</a></div>
+                        <div class="c-nav-cols cnc-2"><a href="create_votes.html" class="non-active">Создать голосование</a></div>
                     </div>
                     <div class="col c-nav-wrapper">
                         <div class="c-nav-cols cnc-3"><a href="#" class="non-active">Избранное</a></div>
@@ -48,38 +48,35 @@
             </div>
             <hr>
             <div class="container-data">
-                <form action="#" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col-3">
-                            <div class="load-av"><span>Логин</span></div>
-                        </div>
-                        <div class="col-9">
-                            {{ form.username }}
+                <form action="#" method="post">
+                    <div class="row m-center">
+                        <div class="col col-change">
+                            <input type="text" placeholder="Логин" required>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-3">
-                            <div class="load-av"><span>Почта</span></div>
-                        </div>
-                        <div class="col-9">
-                            {{ form.email }}
+                    <div class="row m-center">
+                        <div class="col col-change">
+                            <input type="email" placeholder="Почта" required>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-3">
-                            <div class="load-av"><span>Имя</span></div>
-                        </div>
-                        <div class="col-9">
-                            {{ form.first_name }}
+                    <div class="row m-center">
+                        <div class="col col-change">
+                            <input type="text" placeholder="Имя" class="f-l-upper" required>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-3">
-                            <div class="load-av"><span>Фамилия</span></div>
+                    <div class="row m-center">
+                        <div class="col col-change">
+                            <input type="text" placeholder="Фамилия" class="f-l-upper" required>
                         </div>
-                        <div class="col-9">
-                            {{ form.last_name }}
+                    </div>
+                    <div class="row m-center">
+                        <div class="col col-change">
+                            <input type="password" placeholder="Пароль" required>
+                        </div>
+                    </div>
+                    <div class="row m-center">
+                        <div class="col col-change">
+                            <input type="password" placeholder="Подтверждение пароля" required>
                         </div>
                     </div>
                     <div class="row mt-5">
@@ -87,29 +84,28 @@
                             <div class="load-av"><span>Загрузить аватар</span></div>
                         </div>
                         <div class="col-9">
-                            {{ form.avatar }}
+                            <input type="file" class="form-control mt-2">
                         </div>
                     </div>
-                    <div class="submit-wrapper mt-5">
+                    <div class="submit-wrapper">
                         <div class="submit-button">
                             <button type="submit" class="submit">Сохранить изменения</button>
                         </div>
                     </div>
-                {% if form.non_field_errors %}
-                    {{ form.non_field_errors }}
-                {% endif %}
                 </form>
             </div>
         </div>
         <div class="avatar col-3">
             <div class="avatar-wrapper">
-                <img src="{% if user.avatar %}{{ user.avatar.url }}{% else %}{% static 'images/avatar_default.jpg' %}{% endif %}" alt="Аватар" class="avatar-image">
-                <p class="avatar-description"><span>{{ user.first_name }}</span><br><span class="descr-mail">{{ user.email }}</span></p>
+                <div class="avatar-image">
+                    <!--                    <img src="images/easy-icon.png" alt="">-->
+                </div>
+                <p class="avatar-description"><span>Ванюша</span><br><span class="descr-mail">mastero@mail.ru</span></p>
                 <hr>
             </div>
             <div class="avatar-bottom">
                 <hr>
-                <p class="a-b-text"><a href="{% url 'profile' %}">Вернуться на главную</a></p>
+                <p class="a-b-text"><a href="norm_profile.html">Вернуться на главную</a></p>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
-{% load static %}
 {% load vote_tags %}
+{% load static %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <!-- Required meta tags -->
@@ -34,7 +34,7 @@
                         <div class="row">
                             <div class="col-9">
                                 <div class="checkbtn">
-                                    <input type="checkbox" name="option" value={{ forloop.counter|stringformat:"i" }}>
+                                    <input type="checkbox" name="option" value={{ forloop.counter|stringformat:"i" }}/>
                                     <label class="check-but"><i>{{ option }}</i></label>
                                 </div>
                             </div>
@@ -44,15 +44,15 @@
                                 </div>
                             </div>
                         </div>
+                        {% if user.is_authenticated %}
+                            <div class="submit-wrapper">
+                                <div class="submit-button">
+                                    <button type="submit" class="submit">Проголосовать</button>
+                                </div>
+                            </div>
+                        {% endif %}
                     {% endwith %}
                 {% endfor %}
-                {% if user.is_authenticated %}
-                    <div class="submit-wrapper">
-                        <div class="submit-button" style="padding-bottom: 0;">
-                            <button type="submit" class="submit">Проголосовать</button>
-                        </div>
-                    </div>
-                {% endif %}
             {% endif %}
             {% if data.vote_type == 'one-option' %}
                 {% for option in data.get_options%}
@@ -60,7 +60,7 @@
                         <div class="row">
                             <div class="col-9">
                                 <div class="radiobtn">
-                                    <input type="radio" name="option" value={{ forloop.counter|stringformat:"i" }}>
+                                    <input type="radio" name="option" value={{ forloop.counter|stringformat:"i" }}/>
                                     <label class="rad-but"><i>{{ option }} </i></label>
                                 </div>
                             </div>
@@ -70,31 +70,28 @@
                                 </div>
                             </div>
                         </div>
+                        {% if user.is_authenticated %}
+                            <div class="submit-wrapper">
+                                <div class="submit-button">
+                                    <button type="submit" class="submit">Проголосовать</button>
+                                </div>
+                            </div>
+                        {% endif %}
                     {% endwith %}
                 {% endfor %}
-                {% if user.is_authenticated %}
-                    <div class="submit-wrapper">
-                        <div class="submit-button" style="padding-bottom: 0;">
-                            <button type="submit" class="submit">Проголосовать</button>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endif %}
-        </form>
-        <form action="{% url 'fav_vote' data.id %}" method="POST">
-            {% csrf_token %}
-            {% if user.is_authenticated %}
-                <div class="submit-wrapper" style="margin-top: 0;">
-                    <div class="submit-button" style="text-align: center;">
-                        <button type="submit" name="vote_id" class="submit" value="{{ data.id }}">Добавить в избранное</button>
-                    </div>
-                </div>
-            {% else %}
-                Вы не вошли на сайт. <a href="{% url 'login' %}">Нажмите здесь, чтобы войти</a>.<br>
-                Ещё не зарегистрированы? <a href="{% url 'signup' %}">Создайте новый аккаунт</a>.
             {% endif %}
         </form>
     </div>
+
+    <form action="{% url 'fav_vote' data.id %}" method="POST">
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+            <button type="submit" name="vote_id" class="btn btn-primary btn-sm" value="{{ data.id }}">Добавить в избранное</button>
+        {% else %}
+            Вы не вошли на сайт. <a href="{% url 'login' %}">Нажмите здесь, чтобы войти</a>.<br>
+            Ещё не зарегистрированы? <a href="{% url 'signup' %}">Создайте новый аккаунт</a>.
+        {% endif %}
+    </form>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>

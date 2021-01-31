@@ -4,7 +4,6 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import views as auth_views
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
-from django.shortcuts import redirect, resolve_url
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -20,6 +19,7 @@ class UserCreationView(generic.CreateView):
     form_class = CustomUserCreationForm
 
     def form_valid(self, form):
+        super().form_valid(form)
         form.save()
         email = self.request.POST['email']
         username = self.request.POST['username']

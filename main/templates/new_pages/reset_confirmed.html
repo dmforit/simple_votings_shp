@@ -12,30 +12,30 @@
     <title>HPW - Авторизация</title>
 
     <!-- Main CSS-->
-    <link rel="stylesheet" href="{% static 'css/styles/auth-reg.css' %}">
+    <link rel="stylesheet" href="styles/auth-reg.css">
 </head>
 
 <body>
-    <div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a></div>
+    <div class="logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
     <div class="auth-form">
-        <div class="label" style="margin-bottom: 40px;">Восстановление пароля</div>
+        <div class="label">Восстановление пароля</div>
+        <p style="text-align: center; font-size: 14px; margin-top: 0;"><i>Ваш пароль был сброшен. Введите новый.</i></p>
         <form action="#" method="post">
-            {% csrf_token %}
             <div class="row">
                 <div class="col">
-                    {{ form.password }}
+                    <input type="password" placeholder=" " required>
                     <div class="check">Пароль</div>
                 </div>
             </div>
             <div class="submit-wrapper">
                 <div class="submit-button center-reset">
-                    <button type="submit" class="submit">Отправить запрос</button>
+                    <button type="submit" class="submit">Изменить пароль</button>
                 </div>
             </div>
         </form>
     </div>
     <div class="auth-footer">
-        <span><a href="{% url 'login' %}">Вернуться к авторизации</a></span>
+        <span><a href="authorisation.html">Вернуться к авторизации</a></span>
     </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>

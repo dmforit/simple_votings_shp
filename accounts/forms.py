@@ -28,7 +28,6 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class CustomUserChangeForm(UserChangeForm):
-    # TODO что это? может профиль, а не редактирование?
     password = None
 
     class Meta:
@@ -40,6 +39,14 @@ class CustomUserChangeForm(UserChangeForm):
             'email',
             'avatar'
         )
+
+        widgets = {
+            'username': forms.TextInput(attrs={'style': 'margin-top: 6px;'}),
+            'email': forms.EmailInput(attrs={'style': 'margin-top: 6px;'}),
+            'first_name': forms.TextInput(attrs={'style': 'margin-top: 6px;'}),
+            'last_name': forms.TextInput(attrs={'style': 'margin-top: 6px;'}),
+            'avatar': forms.FileInput(attrs={'class': 'form-control mt-2'}),
+        }
 
 
 class CustomUserLoginForm(AuthenticationForm):

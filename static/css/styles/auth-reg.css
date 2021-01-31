@@ -48,12 +48,13 @@ label {
 }
 
 .logo {
-    width: 150px;
-    margin: 0 auto 40px;
+    width: 100px;
+    margin: 20px auto 60px;
 }
 
 .reg-footer,
 .auth-footer {
+    text-align: center;
     margin: 10px auto 0;
     max-width: 400px;
     color: #ccc;
@@ -87,7 +88,7 @@ label {
 .label {
     text-align: center;
     font-size: 25px;
-    margin: 10px 0px 35px;
+    margin: 10px 0px 30px;
 }
 
 .row {
@@ -125,6 +126,10 @@ label {
     border: 1px solid #fff;
 }
 
+.submit:focus {
+    outline: none;
+}
+
 .f-l-upper {
     text-transform: capitalize;
 }
@@ -134,5 +139,9 @@ label {
 }
 
 .reset-password {
-    margin-left: 5%;
+    padding-left: 20px;
+}
+
+.center-reset {
+    text-align: center;
 }

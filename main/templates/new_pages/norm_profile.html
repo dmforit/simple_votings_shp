@@ -41,7 +41,7 @@
                             <div class="c-nav-cols cnc-1"><a href="{% url 'profile' %}" class="active">Личные данные</a></div>
                         </div>
                         <div class="col c-nav-wrapper">
-                            <div class="c-nav-cols cnc-2"><a href="{% url 'vote' %}" class="non-active">Создать голосование</a></div>
+                            <div class="c-nav-cols cnc-2"><a href="create_votes.html" class="non-active">Создать голосование</a></div>
                         </div>
                         <div class="col c-nav-wrapper">
                             <div class="c-nav-cols cnc-3"><a href="#" class="non-active">Избранное</a></div>
@@ -77,7 +77,9 @@
             </div>
             <div class="avatar col-3">
                 <div class="avatar-wrapper">
-                    <img src="{% if user.avatar %}{{ user.avatar.url }}{% else %}{% static 'images/avatar_default.jpg' %}{% endif %}" alt="Аватар" class="avatar-image">
+                    <div class="avatar-image">
+                        <img src="{% if user.avatar %}{{ user.avatar.url }}{% else %}{% static 'images/avatar_default.jpg' %}{% endif %}" alt="Аватар">
+                    </div>
                     <p class="avatar-description"><span>{{ user.first_name }}</span><br><span class="descr-mail">{{ user.email }}</span></p>
                     <hr>
                 </div>

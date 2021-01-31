@@ -18,10 +18,21 @@
 <body>
     <div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a></div>
     <div class="auth-form">
-        <div class="label" style="margin-bottom: 40px;">Восстановление пароля</div>
-        <div class="sent-text mt-5">
-            <p style="text-align: center;"><i>Письмо с инструкциями отправлено на ваш email.</i><br><i>Не забывайте проверять папку spam.</i></p>
-        </div>
+        <div class="label">Восстановление пароля</div>
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    {{ form.email }}
+                    <div class="check">Почта</div>
+                </div>
+            </div>
+            <div class="submit-wrapper">
+                <div class="submit-button center-reset">
+                    <button type="submit" class="submit">Отправить запрос</button>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="auth-footer">
         <span><a href="{% url 'login' %}">Вернуться к авторизации</a></span>
