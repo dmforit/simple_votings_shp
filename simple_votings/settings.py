@@ -31,6 +31,7 @@ SECRET_KEY = 'l0jd=v0xn8271m!iwk@gxe!57l(b=2qjmob@%io6dzr-2jbx9g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ADMINS = [('Roman', 'prime.zen2017@yandex.ru'), ('Test', 'zendorluse5050@gmail.com')]
 ALLOWED_HOSTS = []
 AUTH_USER_MODEL = 'accounts.CustomUser'
 # Application definition
@@ -39,11 +40,11 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'YOUREMAIL@gmail.com' # Почта сайта & её пароль на основе GMail или иного сервиса.
-EMAIL_HOST_PASSWORD = 'YOURPASSWORD'
+EMAIL_HOST_USER = 'honestpollswebsiteteam@gmail.com' # Почта сайта & её пароль на основе GMail или иного сервиса.
+EMAIL_HOST_PASSWORD = 'vN8Jd42x'
 
 # Строка ниже только для консольного тестирования отправки почты.
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -57,7 +58,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'vote',
     'channels',
-    'favorites'
+    'favorites',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [

@@ -60,7 +60,7 @@
                             <div class="submit-button mt-1">
                                 <form action="#" method="post">
                                     {% csrf_token %}
-                                    <input type="submit" class="submit delete_vote" value="Удалить">
+                                    <button type="submit" name="vote_id" class="submit delete_vote" value="{{ item }}">Удалить</button>
                                 </form>
                             </div>
                         </div>

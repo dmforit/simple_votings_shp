@@ -23,6 +23,7 @@ from accounts.forms import CustomUserLoginForm
 from main import views
 from vote import views as vote_views
 from favorites import views as favorite_views
+from complaints import views as complaints_views
 from django.contrib.auth import views as auth_views
 
 from main.views import get_menu_context
@@ -64,6 +65,8 @@ urlpatterns = [
     path('reset/sent/', auth_views.PasswordResetDoneView.as_view(template_name = "registration/reset_sent.html"), name ='password_reset_done'),
     path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(template_name = "registration/reset_confirmed.html"), name ='password_reset_confirm'),
     path('reset/success/', auth_views.PasswordResetCompleteView.as_view(template_name = "registration/reset_success.html"), name ='password_reset_complete'),
+
+    path('complaints/', complaints_views.complaint_page, name='complaints')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
