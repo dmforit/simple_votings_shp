@@ -1,3 +1,4 @@
+{% load widget_tweaks %}
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,7 @@
             {% csrf_token %}
             <div class="row">
                 <div class="col">
-                    {{ form.email }}
+                    {{ form.email|append_attr:"placeholder=' '" }}
                     <div class="check">Почта</div>
                 </div>
             </div>
