@@ -15,7 +15,7 @@ hr {
 .container {
     padding: 0;
     width: 1300px;
-    height: 750px;
+    min-height: 750px;
     margin: 0 auto;
     border-radius: 8px;
     background-color: #fff;
@@ -132,7 +132,6 @@ hr {
 }
 
 .avatar-image {
-    display: inline-block;
     border-radius: 30px;
     border: 1px solid #000;
     width: 120px;
@@ -169,7 +168,7 @@ hr {
 
 .container-data {
     padding: 0 60px;
-    height: 590px;
+    min-height: 590px;
     margin-top: 80px;
 }
 
@@ -204,11 +203,6 @@ hr {
 }
 
 /* EDIT PROFILE */
-
-.m-center {
-    width: 60%;
-    margin: 0 auto;
-}
 
 input:not([type="file"]) {
     width: 100%;
@@ -258,7 +252,8 @@ input[type="email"]:not(:placeholder-shown) {
 }
 
 .submit:active {
-    border: 1px solid #fff;
+    transform: scale(1.05);
+    transition: .4s ease;
 }
 
 .f-l-upper {
@@ -295,4 +290,30 @@ input[type="email"]:not(:placeholder-shown) {
 
 .center-reset {
     text-align: center;
+}
+
+.delete_vote {
+    border-radius: 20px;
+}
+
+.vote-link {
+    display: inline-block;
+    padding-top: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    -webkit-box-shadow: 0 2px 14px 4px rgba(101, 119, 139, .12);
+    box-shadow: 0 2px 14px 4px rgba(101, 119, 139, .12);
+    height: 50px;
+    border-radius: 20px;
+    transition: .4s ease;
+}
+
+.vote-link:hover {
+    color: black;
+    transform: scale(1.05);
+    transition: .4s ease;
 }

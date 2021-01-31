@@ -57,6 +57,7 @@ urlpatterns = [
     path('vote/rooms/', include('vote.urls', namespace='vote'), name='vote_room'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('fav_vote/<str:pk>', vote_views.fav_view, name='fav_vote'),
+    path('favorites/<str:pk>', favorite_views.fav_view_remove, name='fav_vote_remove'),
     path('favorites/', favorite_views.favorites, name="favorites"),
 
     path('reset', auth_views.PasswordResetView.as_view(template_name = "registration/reset.html"), name ='reset_password'),
