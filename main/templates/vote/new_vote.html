@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <title>HPW - Создание голосования</title>
 
@@ -19,27 +20,48 @@
     <link rel="stylesheet" href="{% static 'css/styles/creation_votes.css' %}">
 </head>
 
-<script>
-    setTimeout(function() {
-        document.body.classList.add('body_visible');
-    }, 200);
-</script>
-
 <body>
-    <div class="header">
-        <div class="h-logo">
-            <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
-        </div>
+    <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" class="logo"/></a>
+    <div class='header'>
+        <nav class="navbar">
+            <div class="hamburger-menu">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+            <ul class="nav-list">
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}" class="nav-link">Выйти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'profile' %}" class="nav-link">Профиль пользователя</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'edit_profile' %}" class="nav-link">Редактировать профиль</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}" class="nav-link">Войти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'signup' %}" class="nav-link">Зарегистрироваться</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
     </div>
     <div class="container row">
         <div class="content col-9">
             <div class="container-nav">
                 <div class="row">
                     <div class="col c-nav-wrapper">
-                        <div class="c-nav-cols cnc-1"><a href="{% url 'profile' %}" class="non-active">Личные данные</a></div>
+                        <div class="c-nav-cols cnc-1"><a href="{% url 'profile' %}" class="non-active">Личные данные</a>
+                        </div>
                     </div>
                     <div class="col c-nav-wrapper">
-                        <div class="c-nav-cols cnc-2"><a href="{% url 'vote' %}" class="active">Создать голосование</a></div>
+                        <div class="c-nav-cols cnc-2"><a href="{% url 'vote' %}" class="active">Создать голосование</a>
+                        </div>
                     </div>
                     <div class="col c-nav-wrapper">
                         <div class="c-nav-cols cnc-3"><a href="{% url 'favorites' %}" class="non-active">Избранное</a></div>
@@ -79,24 +101,33 @@
                         </div>
                     </div>
                     {% else %}
-                        Вы не вошли на сайт. Чтобы создать голосование, <a href="{% url 'login' %}">войдите</a>.<br>
-                        Ещё не зарегистрированы? <a href="{% url 'signup' %}">Создайте новый аккаунт</a>.
+                    Вы не вошли на сайт. Чтобы создать голосование, <a href="{% url 'login' %}">войдите</a>.<br>
+                    Ещё не зарегистрированы? <a href="{% url 'signup' %}">Создайте новый аккаунт</a>.
                     {% endif %}
                 </form>
             </div>
         </div>
         <div class="avatar col-3">
             <div class="avatar-wrapper">
-                <img src="{% if user.avatar %}{{ user.avatar.url }}{% else %}{% static 'images/avatar_default.jpg' %}{% endif %}" alt="Аватар" class="avatar-image">
-                <p class="avatar-description"><span>{{ user.first_name }}</span><br><span class="descr-mail">{{ user.email }}</span></p>
+                <img
+                    src="{% if user.avatar %}{{ user.avatar.url }}{% else %}{% static 'images/avatar_default.jpg' %}{% endif %}"
+                    alt="Аватар" class="avatar-image">
+                <p class="avatar-description"><span>{{ user.first_name }}</span><br><span class="descr-mail">{{ user.email }}</span>
+                </p>
                 <hr>
             </div>
             <div class="avatar-bottom">
+                <hr>
+                <p class="a-b-text"><a href="{% url 'logout' %}">Выйти</a></p>
                 <hr>
                 <p class="a-b-text"><a href="{% url 'edit_profile' %}">Редактировать профиль</a></p>
             </div>
         </div>
     </div>
+    <script src="{% static 'js/script.js' %}"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-</body></html>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
+</body>
+</html>

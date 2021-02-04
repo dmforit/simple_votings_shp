@@ -9,12 +9,11 @@ from accounts.models import CustomUser
 
 
 def favorites(request):
-    ctx = request.user.fav_votes.all
-
-    return render(request, "favorites/favorites.html", {"all": ctx})
-
-
-def fav_view_remove(request, pk):
-    vote = get_object_or_404(Vote, id=request.POST.get('vote_id'))
-    request.user.fav_votes.remove(vote.id)
-    return HttpResponseRedirect(reverse('favorites'))
+    if request.method == "POST":
+        vote = get_object_or_404(Vote, id=request.POST.get('vote_id'))
+        request.user.fav_votes.remove(vote.id)
+        return HttpResponseRedirect(reverse('favorites'))
+    if request.method == "GET":
+        ctx = request.user.fav_votes.all
+        return render(request, "favorites/favorites.html", {"all": ctx})
+    return render(request, "favorites/favorites.html")
