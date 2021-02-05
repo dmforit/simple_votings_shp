@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,35 +54,35 @@
         {% csrf_token %}
         <div class="row">
             <div class="col">
-                {{ form.username }}
+                {{ form.username|append_attr:'placeholder: ' }}
                 <div class="check">Логин</div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                {{ form.email }}
+                {{ form.email|append_attr:'placeholder: ' }}
                 <div class="check">Почта</div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                {{ form.first_name }}
+                {{ form.first_name|append_attr:'placeholder: ' }}
                 <div class="check">Имя</div>
             </div>
             <div class="col">
-                {{ form.last_name }}
+                {{ form.last_name|append_attr:'placeholder: ' }}
                 <div class="check">Фамилия</div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                {{ form.password1 }}
+                {{ form.password1|append_attr:'placeholder: ' }}
                 <div class="check">Пароль</div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                {{ form.password2 }}
+                {{ form.password2|append_attr:'placeholder: ' }}
                 <div class="check">Подтверждение пароля</div>
             </div>
         </div>
@@ -90,12 +91,14 @@
                 <button type="submit" class="submit">Создать аккаунт!</button>
             </div>
         </div>
-        {% for error in form.non_field_errors %}
-            <div class="row">
-                <div class="col" style="text-align: center; font-style: italic;">
-                    {{ error }}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="row">
+                    <div class="col" style="text-align: center; font-style: italic;">
+                        {{ error }}
+                    </div>
                 </div>
-            </div>
+            {% endfor %}
         {% endfor %}
     </form>
 </div>

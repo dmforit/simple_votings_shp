@@ -19,7 +19,6 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from accounts import views as accounts_views
-from accounts.forms import CustomUserLoginForm
 from main import views
 from vote import views as vote_views
 from favorites import views as favorite_views
