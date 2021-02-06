@@ -314,7 +314,7 @@ hr {
 
 /* EDIT PROFILE */
 
-input:not([type="file"]) {
+input:not([type="file"]):not([type="checkbox"]) {
     width: 100%;
     font-weight: 500;
     font-size: 14px;
@@ -328,6 +328,13 @@ input:not([type="file"]) {
     text-align: center;
     position: relative;
     outline: 0;
+}
+
+.for-ch-switch {
+    -webkit-box-shadow: 0 2px 14px 4px rgba(101, 119, 139, .12);
+    box-shadow: 0 2px 14px 4px rgba(101, 119, 139, .12);
+    border-radius: 20px;
+    height: 50px;
 }
 
 input[type="email"]:not(:placeholder-shown) {
