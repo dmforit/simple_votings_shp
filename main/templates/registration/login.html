@@ -1,3 +1,4 @@
+{% load widget_tweaks %}
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -55,13 +56,13 @@
         {% csrf_token %}
         <div class="row">
             <div class="col">
-                {{ form.username }}
+                {{ form.username|append_attr:'placeholder: ' }}
                 <div class="check">Логин</div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                {{ form.password }}
+                {{ form.password|append_attr:'placeholder: ' }}
                 <div class="check">Пароль</div>
             </div>
         </div>

@@ -61,4 +61,3 @@ def fav_view(request, pk):
     return HttpResponseRedirect(reverse('vote:room', args=[str(pk)]))
 
 # TODO voting pages as layout extension
-# TODO add design to votes
