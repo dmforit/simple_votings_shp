@@ -107,7 +107,8 @@
                             <div class="load-av"><span>Загрузить аватар</span></div>
                         </div>
                         <div class="col-9">
-                            {{ form.avatar|append_attr:'class:form-control mt-2' }}
+                            Сбросить аватар:<input type="checkbox" name="avatar-clear" id="avatar-clear_id">
+                            <input type="file" name="avatar" accept="image/*" class="form-control mt-2" id="id_avatar">
                         </div>
                     </div>
                     <div class="submit-wrapper mt-5">
@@ -140,4 +141,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body></html>
 
-<!--TODO Исправить форму "На данный момент"-->
