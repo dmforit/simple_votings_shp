@@ -24,6 +24,7 @@ def avatar_validator(avatar_image):
 class CustomUser(AbstractUser):
     avatar = models.ImageField(null=True, blank=True, upload_to=path_and_rename, validators=[avatar_validator])
     fav_votes = models.ManyToManyField(Vote, related_name="fav_votes", blank=True)
+    own_votes = models.ManyToManyField(Vote, related_name="own_votes", blank=True)
 
     def __str__(self):
         return self.username

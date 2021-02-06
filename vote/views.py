@@ -51,7 +51,7 @@ def room(request, room_name):
         data.save()
 
     context = {'data': data}
-
+    request.user.own_votes.add(data.id)
     return render(request, 'vote/room.html', context)
 
 
@@ -60,4 +60,14 @@ def fav_view(request, pk):
     request.user.fav_votes.add(vote.id)
     return HttpResponseRedirect(reverse('vote:room', args=[str(pk)]))
 
-# TODO voting pages as layout extension
+
+def own_votes_view(request):
+    if request.method == "POST":
+        vote = get_object_or_404(Vote, id=request.POST.get('vote_id'))
+        request.user.own_votes.remove(vote.id)
+        vote.delete()
+        return HttpResponseRedirect(reverse('own_votes'))
+    if request.method == "GET":
+        ctx = request.user.own_votes.all
+        return render(request, "vote/own_votes.html", {"all": ctx})
+    return render(request, "vote/own_votes.html")
