@@ -16,11 +16,12 @@ def new_vote(request):
 
         list_voters = [[]] * len(list_options)
 
-        v = Vote(title=title, options=str(list_options), voters=str(list_voters), vote_type=vote_type)
+        v = Vote(title=title, options=str(list_options), voters=str(list_voters),
+                 vote_type=vote_type, author=request.user)
         v.save()
+        request.user.own_votes.add(v.id)
 
         return redirect('rooms/' + str(v.id))
-
     return render(request, 'vote/new_vote.html')
 
 
@@ -51,7 +52,6 @@ def room(request, room_name):
         data.save()
 
     context = {'data': data}
-    request.user.own_votes.add(data.id)
     return render(request, 'vote/room.html', context)
 
 
@@ -71,3 +71,12 @@ def own_votes_view(request):
         ctx = request.user.own_votes.all
         return render(request, "vote/own_votes.html", {"all": ctx})
     return render(request, "vote/own_votes.html")
+
+
+def all_votes_view(request):
+    votes = Vote.objects.all()
+    context = {'votes': votes}
+    if request.method == "POST":
+        vote = get_object_or_404(Vote, id=request.POST.get('vote_id'))
+        request.user.fav_votes.add(vote.id)
+    return render(request, 'vote/all_votes.html', context)

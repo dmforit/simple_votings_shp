@@ -40,6 +40,9 @@
                     <li class="nav-item">
                         <a href="{% url 'edit_profile' %}" class="nav-link">Редактировать профиль</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{% url 'all_votes' %}" class="nav-link">Голосования</a>
+                    </li>
                 {% else %}
                     <li class="nav-item">
                         <a href="{% url 'login' %}" class="nav-link">Войти</a>

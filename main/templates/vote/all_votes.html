@@ -1,25 +1,25 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <title>HPW - Авторизация</title>
+    <title>HPW - Голосования</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
-    <!-- Main CSS-->
-    <link rel="stylesheet" href="{% static 'css/styles/auth-reg.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles/all_votes.css' %}">
 </head>
 
 <body>
-   <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" class="logo"/></a>
-    <div class='header'>
+<a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" class="logo"/></a>
+<div class='header'>
         <nav class="navbar">
             <div class="hamburger-menu">
                 <div class="line line-1"></div>
@@ -51,27 +51,44 @@
             </ul>
         </nav>
     </div>
-    <div class="auth-form">
-        <div class="label" style="margin-bottom: 40px;">Восстановление пароля</div>
-        <form action="#" method="post">
-            {% csrf_token %}
-            <div class="row">
-                <div class="col">
-                    {{ form.password }}
-                    <div class="check">Пароль</div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="container row">
+            <div class="content col">
+                <div class="container-data">
+                    <table class="table table-striped text-center">
+                        <thead class="thead-bg-dark">
+                            <tr>
+                                <th class="table-header" colspan="5">Голосования</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Название</th>
+                                <th scope="col">Автор</th>
+                                <th scope="col">Тип голосования</th>
+                                <th scope="col">Дата создания</th>
+                                <th scope="col">Избранное</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for vote in votes %}
+                                <tr>
+                                    <td><a href="http://127.0.0.1:8000/vote/rooms/{{ vote }}" class="vote-link">{{ vote.title }}</a></td>
+                                    <td>{{ vote.author }}</td>
+                                    <td>{{ vote.vote_type }}</td>
+                                    <td>{{ vote.date|date:"m.d.Y H:i" }}</td>
+                                    <td>
+                                        {% if user.is_authenticated %}
+                                            <button type="submit" name="vote_id" class="button-votes" value="{{ vote.id }}">Добавить в избранное</button>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="submit-wrapper">
-                <div class="submit-button center-reset">
-                    <button type="submit" class="submit">Отправить запрос</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="auth-footer">
-        <span><a href="{% url 'login' %}">Вернуться к авторизации</a></span>
-    </div>
-       <script src="{% static 'js/script.js' %}"></script>
+    </form>
+    <script src="{% static 'js/script.js' %}"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body></html>

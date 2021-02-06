@@ -12,6 +12,7 @@ class Vote(models.Model):
     options = models.CharField(max_length=500)
     voters = models.CharField(max_length=500)
     date = models.DateTimeField(default=timezone.now)
+    author = models.CharField(default='Annonym', max_length=500)
 
     def get_options(self):
         options = ast.literal_eval(self.options)

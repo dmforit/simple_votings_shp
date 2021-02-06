@@ -26,7 +26,7 @@ from complaints import views as complaints_views
 from django.contrib.auth import views as auth_views
 
 from main.views import get_menu_context
-from vote.views import own_votes_view
+from vote.views import own_votes_view, all_votes_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -60,6 +60,7 @@ urlpatterns = [
     path('fav_vote/<str:pk>', vote_views.fav_view, name='fav_vote'),
     path('favorites/', favorite_views.favorites, name="favorites"),
     path('own_votes/', own_votes_view, name="own_votes"),
+    path('all_votes/', all_votes_view, name="all_votes"),
     path('reset', auth_views.PasswordResetView.as_view(template_name = "registration/reset.html"), name ='reset_password'),
     path('reset/sent/', auth_views.PasswordResetDoneView.as_view(template_name = "registration/reset_sent.html"), name ='password_reset_done'),
     path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(template_name = "registration/reset_confirmed.html"), name ='password_reset_confirm'),
