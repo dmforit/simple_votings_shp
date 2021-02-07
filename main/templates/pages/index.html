@@ -51,13 +51,14 @@
                     <li class="nav-item">
                         <a href="{% url 'signup' %}" class="nav-link">Зарегистрироваться</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{% url 'all_votes' %}" class="nav-link">Голосования</a>
+                    </li>
                 {% endif %}
             </ul>
         </nav>
         <p class="header-description">
-            <span class="hd-1">Самые</span><br>
-            <span class="hd-2">Честные</span><br>
-            <span class="hd-3">Голосования!</span>
+            Самые<span class="header-span-desc">честные</span>голосования!
         </p>
     </div>
     <div class='main'>
@@ -87,7 +88,7 @@
         <div class="quotation">
             <div class="quotation-description">
                 <p class="qd-main-1"><b>&quot;Наша задача - ускорить и упростить создание опросов и голосований.<br><br>Этот
-                    сервис обладает приятным и понятным интерфейсом, который сможет понять каждый.&quot;</b></p>
+                    сервис обладает приятным и понятным интерфейсом, который сможет освоить каждый.&quot;</b></p>
                 <div class="qd-main-2"><span>Александр Подгорнов</span><br>
                     <p>Основатель и генеральный директор HPW</p>
                 </div>
@@ -103,39 +104,17 @@
             </div>
             <div>Уже есть аккаунт? <a href="{% url 'login' %}" class="reg-b-sign-in">Войдите</a></div>
         </div>
-        <div class="clr"></div>
     </div>
 </div>
 <div class="footer">
-    <div class='footer-top'>
-        <div class="infooter-image"><img src="../../../static/images/image-inside-footer.png" alt=""></div>
-        <div class="links">
-            <span><b>Ссылки</b></span>
-            <ul>
-                <li><a href="https://my.informatics.ru"><i>Обратная связь</i></a></li>
-                <li><a href="https://my.informatics.ru"><i>Наши партнёры</i></a></li>
-                <li><a href="https://my.informatics.ru"><i>Отзывы</i></a></li>
-            </ul>
-        </div>
-        <div class="our-family">
-            <span><b>Наша семья</b></span>
-            <ul>
-                <li><a href="https://my.informatics.ru"><i>Верстальщики</i></a></li>
-                <li><a href="https://my.informatics.ru"><i>Программисты</i></a></li>
-                <li><a href="https://my.informatics.ru"><i>Менеджеры</i></a></li>
-            </ul>
-        </div>
-        <div class="contacts">
-            <span><b>Контакты</b></span>
-            <ul>
-                <li><a href="https://my.informatics.ru" target='_blank'><i>Школа</i></a></li>
-                <li><a href="https://www.instagram.com/" target='_blank'><i>Инстаграм</i></a></li>
-                <li><a href="https://telegram.org/" target='_blank'><i>Телеграм</i></a></li>
-            </ul>
-        </div>
+    <div class="socials-l">
+        <a href="https://my.informatics.ru/" target="_blank"><span class="social_i">SH</span></a>
+        <a href="https://www.instagram.com/" target="_blank"><span class="social_i">IN</span></a>
+        <a href="https://vk.com/" target="_blank"><span class="social_i">VK</span></a>
+        <a href="https://telegram.org/" target="_blank"><span class="social_i">TG</span></a>
     </div>
-    <div class="footer-bottom">
-        <div class="copyright"><span>&copy;&nbsp;2021 HPW</span></div>
+    <div class="footer-copyright">
+        <span>&copy;&nbsp;2021 HPW</span>
     </div>
 </div>
 

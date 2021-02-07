@@ -49,6 +49,9 @@
                     <li class="nav-item">
                         <a href="{% url 'signup' %}" class="nav-link">Зарегистрироваться</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{% url 'all_votes' %}" class="nav-link">Голосования</a>
+                    </li>
                 {% endif %}
             </ul>
         </nav>
@@ -115,7 +118,7 @@
         <div class="avatar col-3">
             <div class="avatar-wrapper">
                 <img
-                    src="{% if user.avatar %}{{ user.avatar.url }}{% else %}{% static 'images/avatar_default.jpg' %}{% endif %}"
+                    src="{% if user.avatar %}{{ user.avatar.url }}{% else %}{% static 'images/avatar_default.gif' %}{% endif %}"
                     alt="Аватар" class="avatar-image">
                 <p class="avatar-description"><span>{{ user.first_name }}</span><br><span class="descr-mail">{{ user.email }}</span>
                 </p>

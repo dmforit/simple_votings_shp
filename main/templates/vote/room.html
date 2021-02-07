@@ -49,6 +49,9 @@
                     <li class="nav-item">
                         <a href="{% url 'signup' %}" class="nav-link">Зарегистрироваться</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{% url 'all_votes' %}" class="nav-link">Голосования</a>
+                    </li>
                 {% endif %}
             </ul>
         </nav>
@@ -122,8 +125,8 @@
                     </div>
                 </div>
             {% else %}
-                Вы не вошли на сайт. <a href="{% url 'login' %}">Нажмите здесь, чтобы войти</a>.<br>
-                Ещё не зарегистрированы? <a href="{% url 'signup' %}">Создайте новый аккаунт</a>.
+                <p style="text-align: center; font-style: italic; margin: 40px 0 1px;">Вы не вошли на сайт. <a href="{% url 'login' %}">Нажмите здесь, чтобы войти</a></p>
+                <p style="text-align: center; font-style: italic; margin: 0 0;">Ещё не зарегистрированы? <a href="{% url 'signup' %}">Создайте новый аккаунт</a></p>
             {% endif %}
         </form>
     </div>

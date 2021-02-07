@@ -22,6 +22,9 @@ body {
 
 .header {
     padding: 50px 100px;
+    background-image: url(../../images/avatar_default.gif);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .navbar {
@@ -154,20 +157,18 @@ body {
 }
 
 .header-description {
+    text-align: center;
     margin: 200px auto;
     max-width: 1500px;
-    min-width: 600px;
-    padding-left: 30%;
-    padding-right: 30%;
+    min-width: 800px;
+    padding-top: 160px;
+    padding-left: 8%;
     font-size: 50px;
 }
 
-.hd-2 {
-    margin-left: 20%;
-}
-
-.hd-3 {
-    margin-left: 50%;
+.header-span-desc {
+    display: inline-block;
+    margin: 0 160px;
 }
 
 .how-it-works {
@@ -315,64 +316,50 @@ body {
 }
 
 .footer {
-    background-color: #fff;
-}
-
-.footer {
+    padding: 20px 0;
     max-width: 2050px;
     min-width: 900px;
     margin: 0 auto;
+    color: white;
+    background-color: black;
+    font-weight: 1000;
+    height: 200px;
 }
 
-.footer-top {
-    margin: -200px auto 0;
-    height: 400px;
-    max-width: 1750px;
-    min-width: 900px;
-    padding: 0px 100px;
+.footer-copyright {
+    text-align: center;
+    margin: 10px 0;
 }
 
-.footer-top > div > ul {
-    margin-top: 20px;
-    list-style-type: circle;
-    padding-left: 0;
-}
-
-.footer-top > div > ul > li > a {
-    font-size: 25px;
-    text-decoration: none;
-    color: black;
-}
-
-.footer-top > div > ul > li > a:hover {
-    color: gray;
-}
-
-.infooter-image,
-.links,
-.our-family,
-.contacts {
-    float: left;
-}
-
-.links,
-.our-family,
-.contacts {
-    margin-top: 80px;
-    font-size: 30px;
-    color: black;
-    height: 300px;
-    margin-left: 8%;
-}
-
-.footer-bottom {
-    color: black;
-    padding: 25px 20px;
-    margin: 0 auto;
+.socials-l {
+    color: white;
     height: 100px;
-    width: 1750px;
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
 }
 
-.copyright {
-    float: right;
+.socials-l > a {
+    text-decoration: none;
+}
+
+.social_i:hover {
+    transform: scale(1.05);
+    transition: .4s ease;
+}
+
+.social_i {
+    display: inline-block;
+    color: black;
+    max-height: 48px;
+    max-width: 48px;
+    height: 48px;
+    width: 48px;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    fill: #000;
+    background-color: #fff;
+    margin-right: 15px;
+    transition: .4s ease;
 }
