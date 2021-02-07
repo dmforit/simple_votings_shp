@@ -17,10 +17,17 @@ def complaint_page(request):
         context['complaint_text'] = form.cleaned_data.get('text')
         context['title'] = form.cleaned_data.get('title')
         context['has_data'] = True
-        mail_admins(
-            'Жалоба от пользователя',
-            'Имя пользователя: {0}\nПочта пользователя: {1}\nЗаголовок: {2}\nЖалобы: {3}'.format(request.user.username, request.user.email, context['title'], context['complaint_text']),
-            fail_silently=True
+        send_mail('Жалоба от пользователя',
+                  'Имя пользователя: {0}\nПочта пользователя: {1}\nЗаголовок: {2}\nЖалобы: {3}'.format(request.user.username, request.user.email, context['title'], context['complaint_text']),
+                  EMAIL_HOST_USER,
+                  [request.user.email],
+                  fail_silently=True,
+        )
+        send_mail('Жалоба от пользователя',
+                  'Имя пользователя: {0}\nПочта пользователя: {1}\nЗаголовок: {2}\nЖалобы: {3}'.format(request.user.username, request.user.email, context['title'], context['complaint_text']),
+                  EMAIL_HOST_USER,
+                  [EMAIL_HOST_USER],
+                  fail_silently=True,
         )
         return render(request, 'complaints/complaints.html', context)
     elif request.method == 'GET':
