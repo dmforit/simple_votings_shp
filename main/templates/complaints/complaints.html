@@ -1,30 +1,113 @@
+{% load widget_tweaks %}
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
     <title>HPW - Жалоба</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
+    <!-- Main CSS-->
+    <link rel="stylesheet" href="{% static 'css/styles/auth-reg.css' %}">
 </head>
+
 <body>
-    {% if request.user.is_authenticated %}
-        {% if has_data %}
-            <h2>Состояние жалобы</h2>
-            <p>Ваша жалоба была успешно отправлена</p>
-            <p>Содержание: "{{ complaint_text }}"</p>
+    <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" class="logo"/></a>
+    <div class='header'>
+        <nav class="navbar">
+            <div class="hamburger-menu">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+            <ul class="nav-list">
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}" class="nav-link">Выйти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'profile' %}" class="nav-link">Профиль пользователя</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'edit_profile' %}" class="nav-link">Редактировать профиль</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'all_votes' %}" class="nav-link">Голосования</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}" class="nav-link">Войти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'signup' %}" class="nav-link">Зарегистрироваться</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'all_votes' %}" class="nav-link">Голосования</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    <div class="auth-form">
+        {% if request.user.is_authenticated %}
+            {% if has_data %}
+                <div class="label" style="margin-bottom: 40px;">Состояние жалобы</div>
+                <div class="sent-text mt-3">
+                    <p style="text-align: center;"><i>Ваша жалоба была успешно отправлена</i></p>
+                </div>
+                <div class="row">
+                    <div style="text-align: center;" class="col">
+                        <label for="title_id">Заголовок</label>
+                        <input style="text-align: center;" id="title_id" type="text" name="title" placeholder="{{ title }}"  disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="text-align: center;" class="col">
+                        <label for="comment">Комментарий</label>
+                        <textarea id="comment" cols="30" rows="10" disabled>{{ complaint_text }}</textarea>
+                    </div>
+                </div>
+            {% else %}
+                <div class="label" style="margin-bottom: 40px; font-weight: 1000;">Жалоба</div>
+                <form action="{% url 'complaints' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col">
+                            {{ form.title|append_attr:'placeholder: ' }}
+                            <div class="check">Заголовок</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div style="text-align: center;" class="col">
+                            <label for="id_text">Комментарий</label>
+                            {{ form.text|append_attr:'class:form-control' }}
+                        </div>
+                    </div>
+                    <div class="submit-wrapper">
+                        <div class="submit-button center-reset">
+                            <button type="submit" class="submit">Отправить запрос</button>
+                        </div>
+                    </div>
+                </form>
+            {% endif %}
         {% else %}
-            <h1> Написать жалобу </h1>
-
-            <form action="{% url 'complaints' %}" method="POST">
-                {% csrf_token %}
-                <p> Комментарий: {{ form.text }}</p>
-                <input type="submit" value="Отправить">
-            </form>
+            <div class="sent-text mt-5">
+                <p style="text-align: center; padding-top: 20px;"><i>Зарегистрируйтесь, чтобы оставить жалобу</i></p>
+            </div>
         {% endif %}
+    </div>
+    <div class="auth-footer">
+        <span><a href="{% url 'profile' %}">Перейти в профиль</a></span>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body></html>
 
-    {% else %}
-        <p>Вы должны быть зарегистрированы, чтобы оставить жалобу</p>
-    {% endif %}
-</body>
-</html>

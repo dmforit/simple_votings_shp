@@ -15,10 +15,11 @@ def complaint_page(request):
     form = ComplaintForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
         context['complaint_text'] = form.cleaned_data.get('text')
+        context['title'] = form.cleaned_data.get('title')
         context['has_data'] = True
         mail_admins(
             'Жалоба от пользователя',
-            'Имя пользователя: {0}\nПочта пользователя: {1}\nЖалобы: {2}'.format(request.user.username, request.user.email, context['complaint_text']),
+            'Имя пользователя: {0}\nПочта пользователя: {1}\nЗаголовок: {2}\nЖалобы: {3}'.format(request.user.username, request.user.email, context['title'], context['complaint_text']),
             fail_silently=True
         )
         return render(request, 'complaints/complaints.html', context)
