@@ -6,6 +6,19 @@ from django.utils import timezone
 
 
 class Vote(models.Model):
+    """
+    Основная модель для голосований
+
+    :param id: индекс голосования
+    :param title: название голосования
+    :param vote_type: тип голосования (множественный, либо единичный)
+    :param options: варианты выбора
+    :param votes: проголосовавшие
+    :param date: дата создания
+    :param author: автор голосования
+
+
+    """
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
     vote_type = models.CharField(max_length=50)
